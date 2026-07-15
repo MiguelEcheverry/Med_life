@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medlife - Nuestras Especialidades</title>
+    <style>
+        /* =========================================
+           VARIABLES Y RESET
+           ========================================= */
+        .body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+        }
+
+        /* =========================================
+           HEADER Y NAVEGACIÓN
+           ========================================= */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: auto;
+        }
+
+        .logo-text-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            color: #0071b9;
+            font-size: 28px;
+            font-weight: 900;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .logo-subtitle {
+            color: #0071b9;
+            font-size: 11px;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        .nav-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #888888;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #0071b9;
+        }
+
+        .nav-link-active {
+            text-decoration: none;
+            color: #0071b9;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        /* =========================================
+           SECCIÓN PRINCIPAL (HERO / GRID)
+           ========================================= */
+        .grey-bar {
+            height: 40px;
+            background-color: #9a9a9a;
+            width: 100%;
+        }
+
+        .main-section {
+            padding: 40px 5%;
+            background-color: #f4f7f9; /* Simula el fondo desenfocado */
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #006bb3;
+            font-size: 42px;
+            font-weight: 900;
+            margin-top: 0;
+            margin-bottom: 40px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-header {
+            text-align: center;
+            padding: 15px 10px;
+            color: #0071b9;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .card-image-container {
+            position: relative;
+            flex-grow: 1;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 113, 185, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Hover funcional con una sola clase (el usuario interactúa con la capa superior) */
+        .card-overlay:hover {
+            opacity: 1;
+        }
+
+        .card-overlay-text {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+        .footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: #ffffff;
+            gap: 40px;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .footer-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #0071b9;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .footer-text {
+            color: #3cb4e5;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        /* Responsividad básica */
+        @media (max-width: 992px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .header {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+        @media (max-width: 576px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            .footer {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body class="body">
+
+    <header class="header">
+        <div class="logo-container">
+            <svg class="logo-icon" viewBox="0 0 100 100" fill="none" stroke="#0071b9" stroke-width="4">
+                <path d="M50 85 C20 60 10 40 10 25 C10 10 30 10 50 30 C70 10 90 10 90 25 C90 40 80 60 50 85 Z" />
+                <circle cx="50" cy="50" r="15" />
+            </svg>
+            <div class="logo-text-wrapper">
+                <h1 class="logo-title">MEDLIFE</h1>
+                <p class="logo-subtitle">VIRTUAL HEALTHCARE</p>
+            </div>
+        </div>
+        <nav class="nav-container">
+            <a href="#" class="nav-link">INICIO</a>
+            <a href="#" class="nav-link">NOSOTROS</a>
+            <a href="#" class="nav-link-active">ESPECIALIDADES</a>
+            <a href="#" class="nav-link">SERVICIOS</a>
+            <a href="#" class="nav-link">BLOG</a>
+            <a href="#" class="nav-link">FARMACIA</a>
+            <a href="#" class="nav-link">PAGOS</a>
+        </nav>
+    </header>
+
+    <div class="grey-bar"></div>
+
+    <main class="main-section">
+        <h2 class="section-title">Nuestras Especialidades</h2>
+        
+        <div class="grid-container">
+            <article class="card">
+                <div class="card-header">PSICOLOGÍA</div>
+                <div class="card-image-container">
+                    <img src="https://placehold.co/400x400/E8F0FE/1A73E8?text=Psicologia" alt="Psicología" class="card-image">
+                    <div class="card-overlay">
+                        <span class="card-overlay-text">VER MAS</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">MEDICINA GEN.</div>
+                <div class="card-image-container">
+                    <img src="https://placehold.co/400x400/E8F0FE/1A73E8?text=Medicina+General" alt="Medicina General" class="card-image">
+                    <div class="card-overlay">
+                        <span class="card-overlay-text">VER MAS</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">PEDIATRÍA</div>
+                <div class="card-image-container">
+                    <img src="https://placehold.co/400x400/E8F0FE/1A73E8?text=Pediatria" alt="Pediatría" class="card-image">
+                    <div class="card-overlay">
+                        <span class="card-overlay-text">VER MAS</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">ENFERMERIA</div>
+                <div class="card-image-container">
+                    <img src="https://placehold.co/400x400/E8F0FE/1A73E8?text=Enfermeria" alt="Enfermería" class="card-image">
+                    <div class="card-overlay">
+                        <span class="card-overlay-text">VER MAS</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">NUTRICIÓN</div>
+                <div class="card-image-container">
+                    <img src="https://placehold.co/400x400/E8F0FE/1A73E8?text=Nutricion" alt="Nutrición" class="card-image">
+                    <div class="card-overlay">
+                        <span class="card-overlay-text">VER MAS</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">CARDIOLOGÍA</div>
+                <div class="card-image-container">
+                    <img src="https://placehold.co/400x400/E8F0FE/1A73E8?text=Cardiologia" alt="Cardiología" class="card-image">
+                    <div class="card-overlay">
+                        <span class="card-overlay-text">VER MAS</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">TERAPIA FISICA</div>
+                <div class="card-image-container">
+                    <img src="https://placehold.co/400x400/E8F0FE/1A73E8?text=Terapia+Fisica" alt="Terapia Física" class="card-image">
+                    <div class="card-overlay">
+                        <span class="card-overlay-text">VER MAS</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">PSIQUIATRIA</div>
+                <div class="card-image-container">
+                    <img src="https://placehold.co/400x400/E8F0FE/1A73E8?text=Psiquiatria" alt="Psiquiatría" class="card-image">
+                    <div class="card-overlay">
+                        <span class="card-overlay-text">VER MAS</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-item">
+            <div class="footer-icon">♥</div>
+        </div>
+        <div class="footer-item">
+            <div class="footer-icon">📞</div>
+            <a href="tel:+573227048889" class="footer-text">+57 322 7048889</a>
+        </div>
+        <div class="footer-item">
+            <div class="footer-icon">✉</div>
+            <a href="mailto:INFO@MEDILIFEGROUP.COM" class="footer-text">INFO@MEDILIFEGROUP.COM</a>
+        </div>
+    </footer>
+
+</body>
+</html>

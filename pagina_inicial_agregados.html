@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medlife Virtual Healthcare</title>
+    <link rel="stylesheet" href="pagina_inicial_agregados.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <section id="home" class="page active">
+        <header class="navbar">
+            <div class="logo">
+                <i class="fa-solid fa-heart-pulse logo-icon"></i>
+                <div class="logo-text">
+                    <h1>MEDLIFE</h1>
+                    <p>VIRTUAL HEALTHCARE</p>
+                </div>
+            </div>
+            <nav class="nav-links">
+                <a href="#" class="active-link" onclick="navigate('home')">INICIO</a>
+                <a href="#">NOSOTROS</a>
+                <a href="#" onclick="navigate('specialties')">ESPECIALIDADES</a>
+                <a href="#" onclick="navigate('features')">SERVICIOS</a>
+                <a href="#">BLOG</a>
+                <a href="#">FARMACIA</a>
+                <a href="#">PAGOS</a>
+            </nav>
+            <div class="user-action" onclick="navigate('login')">
+                <i class="fa-solid fa-user-circle"></i>
+                <span>SING UP</span>
+            </div>
+        </header>
+
+        <main class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-icon">
+                    <i class="fa-solid fa-stethoscope"></i>
+                </div>
+                <h2>Atención médica inmediata, sin salir de casa.</h2>
+                <p>TRANSFORMAMOS LA ATENCIÓN MÉDICA PARA QUE ACCEDAS A CONSULTAS Y MEDICAMENTOS SIN COMPLICACIONES</p>
+                <button class="btn-primary" onclick="navigate('features')">REALIZA TU CONSULTA</button>
+            </div>
+        </main>
+    </section>
+
+    <section id="login" class="page auth-page">
+        <div class="back-btn" onclick="navigate('home')">
+            <i class="fa-solid fa-chevron-left"></i>
+        </div>
+        <div class="auth-modal">
+            <div class="modal-icon">
+                <i class="fa-solid fa-lock"></i>
+                <div class="asterisks">****</div>
+            </div>
+            <h3>INICIA SESION</h3>
+            <form onsubmit="event.preventDefault(); navigate('specialties');">
+                <div class="input-group">
+                    <label>CORREO ELECTRONICO</label>
+                    <input type="email" required>
+                </div>
+                <div class="input-group">
+                    <label>CONTRASEÑA</label>
+                    <input type="password" required>
+                </div>
+                <button type="submit" class="btn-secondary">ACCESO</button>
+                <a href="#" class="forgot-link" onclick="navigate('forgot-password')">¿OLVIDASTE TU CONTRASEÑA?</a>
+            </form>
+        </div>
+    </section>
+
+    <section id="forgot-password" class="page auth-page">
+        <div class="back-btn" onclick="navigate('login')">
+            <i class="fa-solid fa-chevron-left"></i>
+        </div>
+        <div class="auth-modal">
+            <div class="modal-icon">
+                <i class="fa-solid fa-lock"></i>
+                <div class="asterisks">****</div>
+            </div>
+            <h3>CAMBIAR CONTRASEÑA</h3>
+            <form onsubmit="event.preventDefault(); navigate('new-password');">
+                <div class="input-group">
+                    <label>CORREO ELECTRONICO</label>
+                    <input type="email" required>
+                </div>
+                <div class="input-group">
+                    <label>CÓDIGO DE VERIFICACIÓN</label>
+                    <input type="text" required>
+                </div>
+                <button type="submit" class="btn-secondary">CAMBIAR</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="new-password" class="page auth-page">
+        <div class="back-btn" onclick="navigate('forgot-password')">
+            <i class="fa-solid fa-chevron-left"></i>
+        </div>
+        <div class="auth-modal">
+            <div class="modal-icon">
+                <i class="fa-solid fa-lock"></i>
+                <div class="asterisks">****</div>
+            </div>
+            <h3>NUEVA CONTRASEÑA</h3>
+            <form onsubmit="event.preventDefault(); navigate('login');">
+                <div class="input-group">
+                    <label>CONTRASEÑA</label>
+                    <input type="password" required>
+                </div>
+                <div class="input-group">
+                    <label>VERIFICAR CONTRASEÑA</label>
+                    <input type="password" required>
+                </div>
+                <button type="submit" class="btn-secondary">ACCEDER</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="features" class="page">
+        <div class="features-header">
+            <div class="back-btn-alt" onclick="navigate('home')">
+                <i class="fa-solid fa-chevron-left"></i>
+            </div>
+            <div class="search-bar">
+                <select><option>ESPECIALIDAD</option></select>
+                <select><option>TIPO DE SERVICIO</option></select>
+                <button class="btn-search"><i class="fa-solid fa-search"></i> BUSQUEDA</button>
+            </div>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feat-icon"><i class="fa-solid fa-capsules"></i></div>
+                <h4>FARMACIA</h4>
+                <p>ACCEDE A MEDICAMENTOS DE FORMA RÁPIDA Y SEGURA, CON ENTREGA A DOMICILIO SEGÚN TU UBICACIÓN.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feat-icon"><i class="fa-solid fa-clock"></i></div>
+                <h4>ATENCIÓN INMEDIATA</h4>
+                <p>GARANTIZAMOS LA ATENCIÓN EN UN MÁXIMO DE 90 MINUTOS, LUEGO DE DEJAR TU CONSULTA<br><br>ESPECIALISTAS ONLINE 24/7</p>
+            </div>
+            <div class="feature-card">
+                <div class="feat-icon"><i class="fa-solid fa-certificate"></i></div>
+                <h4>ATENCIÓN CERTIFICADA</h4>
+                <p>NUESTROS PROFESIONALES PASAN POR UN PROCESO DE VERIFICACIÓN, QUE ASEGURA SU CERTIFICACIÓN ACADEMICA Y EXPERIENCIA</p>
+            </div>
+            <div class="feature-card">
+                <div class="feat-icon"><i class="fa-solid fa-desktop"></i></div>
+                <h4>CONSULTA CON IA</h4>
+                <p>RECIBE ORIENTACIÓN MÉDICA INMEDIATA CON EL APOYO DE INTELIGENCIA ARTIFICIAL, DISPONIBLE LAS 24 HORAS.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="specialties" class="page">
+        <header class="navbar">
+            <div class="logo">
+                <i class="fa-solid fa-heart-pulse logo-icon"></i>
+                <div class="logo-text">
+                    <h1>MEDLIFE</h1>
+                    <p>VIRTUAL HEALTHCARE</p>
+                </div>
+            </div>
+            <nav class="nav-links">
+                <a href="#" onclick="navigate('home')">INICIO</a>
+                <a href="#">NOSOTROS</a>
+                <a href="#" class="active-link">ESPECIALIDADES</a>
+                <a href="#" onclick="navigate('features')">SERVICIOS</a>
+                <a href="#">BLOG</a>
+                <a href="#">FARMACIA</a>
+                <a href="#">PAGOS</a>
+            </nav>
+        </header>
+        
+        <div class="specialties-container">
+            <h2 class="section-title">Nuestras Especialidades</h2>
+            <div class="specialties-grid">
+                <div class="spec-card">
+                    <div class="spec-title">PSICOLOGÍA</div>
+                    <div class="spec-image" style="background-image: url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=300&q=80');"></div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-title">MEDICINA GEN.</div>
+                    <div class="spec-image" style="background-image: url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=300&q=80');"></div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-title">PEDIATRÍA</div>
+                    <div class="spec-image" style="background-image: url('https://images.unsplash.com/photo-1581594549595-35f6edc7b762?auto=format&fit=crop&w=300&q=80');"></div>
+                </div>
+                <div class="spec-card hover-active">
+                    <div class="spec-title">ENFERMERIA</div>
+                    <div class="spec-image" style="background-image: url('https://images.unsplash.com/photo-1584982751601-97d8cb0f6669?auto=format&fit=crop&w=300&q=80');">
+                        <div class="spec-overlay">
+                            <i class="fa-solid fa-hand-pointer"></i>
+                            <span>VER MAS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-title">NUTRICIÓN</div>
+                    <div class="spec-image" style="background-image: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=300&q=80');"></div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-title">CARDIOLOGÍA</div>
+                    <div class="spec-image" style="background-image: url('https://images.unsplash.com/photo-1628348068343-c6a848c2b6dd?auto=format&fit=crop&w=300&q=80');"></div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-title">TERAPIA FISICA</div>
+                    <div class="spec-image" style="background-image: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=300&q=80');"></div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-title">PSIQUIATRIA</div>
+                    <div class="spec-image" style="background-image: url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80');"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-logo"><i class="fa-solid fa-heart-pulse"></i></div>
+            <div class="footer-contact">
+                <span><i class="fa-solid fa-phone"></i> +57 322 7048889</span>
+                <span><i class="fa-solid fa-envelope"></i> INFO@MEDILIFEGROUP.COM</span>
+            </div>
+        </footer>
+    </section>
+
+    <script>
+        function navigate(pageId) {
+            // Oculta todas las páginas
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Muestra la página solicitada
+            const targetPage = document.getElementById(pageId);
+            if(targetPage) {
+                targetPage.classList.add('active');
+            }
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
