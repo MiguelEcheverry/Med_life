@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Realiza tu consulta - MEDLIFE</title>
+<link rel="stylesheet" href="consultas.css">
+</head>
+<body>
+ 
+<div class="app">
+ 
+  <div class="header">
+    <div class="logo-block">
+      <svg class="logo-icon" viewBox="0 0 90 60" fill="none">
+        <path d="M45 50s-30-11.5-30-26.5C15 13 22 8 29 8c5 0 9 2.5 8 8 0 0 0-8 8-8 7 0 13 5 13 13.5C58 38.5 45 50 45 50z"
+          stroke="#1f7fc4" stroke-width="4" stroke-linejoin="round" fill="none"/>
+        <path d="M22 25h10l4-7 6 14 4-7h10" stroke="#1f7fc4" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <div class="brand-name">MEDLIFE<span>VIRTUAL HEALTHCARE</span></div>
+    </div>
+    <div class="header-text">
+      ENVÍANOS LOS SIGUIENTES DATOS PARA ASIGNARTE EL SERVICIO MÉDICO QUE REQUIERAS.<br>
+      PODEMOS ATENDERTE POR VIDEOLLAMADAS, CHAT 24/7 O EN CONSULTORIOS VIRTUALES
+    </div>
+  </div>
+ 
+  <!-- VISTA PRINCIPAL: FORMULARIO -->
+  <div class="view active" id="mainView">
+ 
+    <div class="title-bar">
+      <span class="back-arrow">&#8249;</span>
+      REALIZA TU CONSULTA
+    </div>
+ 
+    <div class="form-wrap">
+      <form class="form-card" id="medlifeForm">
+ 
+        <div class="field">
+          <input type="text" placeholder="Ingrese su nombre completo (nombres y apellidos)">
+        </div>
+ 
+        <div class="row">
+          <div class="field" id="tipoDocumentoField">
+            <div class="select-display" tabindex="0" data-target="tipoDocumentoPanel">
+              <span class="select-label">INGRESE SU TIPO DE DOCUMENTO</span>
+              <span class="arrow">&#9660;</span>
+            </div>
+            <div class="dropdown-panel" id="tipoDocumentoPanel">
+              <div>Cédula Ciudadanía</div>
+              <div>Cédula Extranjería</div>
+              <div>Tarj. Identidad</div>
+              <div>Pasaporte</div>
+              <div>Registro Civil</div>
+            </div>
+          </div>
+          <div class="field">
+            <input type="tel" placeholder="Ingrese su número de teléfono">
+          </div>
+        </div>
+ 
+        <div class="field">
+          <input type="text" placeholder="Ingrese su número de documento">
+        </div>
+ 
+        <div class="row">
+          <div class="field" id="departamentoField">
+            <div class="select-display" tabindex="0" data-target="departamentoPanel">
+              <span class="select-label">SELECCIONE DEPARTAMENTO</span>
+              <span class="arrow">&#9660;</span>
+            </div>
+            <div class="dropdown-panel" id="departamentoPanel">
+              <div>Amazonas</div>
+              <div>Antioquia</div>
+              <div>Arauca</div>
+              <div>Atlántico</div>
+              <div>Bolívar</div>
+              <div>Boyacá</div>
+            </div>
+          </div>
+          <div class="field" id="ciudadField">
+            <div class="select-display" tabindex="0" data-target="ciudadPanel">
+              <span class="select-label">SELECCIONE CIUDAD</span>
+              <span class="arrow">&#9660;</span>
+            </div>
+            <div class="dropdown-panel" id="ciudadPanel">
+              <div>Leticia</div>
+              <div>Medellín</div>
+              <div>Arauca</div>
+              <div>Barranquilla</div>
+              <div>Cartagena</div>
+              <div>Tunja</div>
+              <div>Manizales</div>
+            </div>
+          </div>
+        </div>
+ 
+        <div class="field">
+          <input type="text" placeholder="Ingrese su dirección ( Barrio, número, código postal)">
+        </div>
+ 
+        <div class="row">
+          <div class="field">
+            <input type="email" placeholder="Ingrese su correo electrónico">
+          </div>
+          <div class="field">
+            <input type="password" placeholder="Ingrese una contraseña">
+          </div>
+        </div>
+ 
+        <div class="terms">
+          Al enviar sus datos, está de acuerdo con la ley vigente <a href="#" id="habeasLink">Habeas Data</a> y los <a href="#" id="termsLink">términos y condiciones</a>
+          que puede consultar
+        </div>
+ 
+        <button type="submit" class="submit-btn">ENVIAR DATOS</button>
+ 
+      </form>
+    </div>
+ 
+  </div>
+ 
+  <!-- VISTA: TÉRMINOS Y CONDICIONES -->
+  <div class="view" id="termsView">
+    <div class="legal-wrap">
+      <span class="back-arrow" data-back>&#8249;</span>
+      <div class="legal-card">
+        <h1 class="legal-title">TERMINOS Y CONDICIONES</h1>
+        <p class="legal-subtitle">AL UTILIZAR EL SITIO WEB DE MEDLIFE, EL USUARIO ACEPTA LOS SIGUIENTES TÉRMINOS</p>
+        <ul class="legal-list">
+          <li><strong>USO DEL SERVICIO:</strong> LA PLATAFORMA OFRECE ORIENTACIÓN Y CONSULTAS VIRTUALES CON FINES INFORMATIVOS. NO REEMPLAZA UNA CONSULTA MÉDICA PRESENCIAL CUANDO SEA NECESARIA.</li>
+          <li><strong>RESPONSABILIDAD DEL USUARIO:</strong> EL USUARIO SE COMPROMETE A PROPORCIONAR INFORMACIÓN VERAZ Y A UTILIZAR EL SITIO DE MANERA ADECUADA Y LEGAL.</li>
+          <li><strong>CONFIDENCIALIDAD:</strong> LA INFORMACIÓN PERSONAL Y MÉDICA PROPORCIONADA SERÁ TRATADA DE FORMA CONFIDENCIAL Y UTILIZADA ÚNICAMENTE PARA LA PRESTACIÓN DEL SERVICIO.</li>
+          <li><strong>LIMITACIÓN DE RESPONSABILIDAD:</strong> EL CONSULTORIO NO SE HACE RESPONSABLE POR DECISIONES TOMADAS POR EL USUARIO BASADAS ÚNICAMENTE EN LA INFORMACIÓN BRINDADA EN LA CONSULTA VIRTUAL.</li>
+          <li><strong>MODIFICACIONES:</strong> EL CONSULTORIO SE RESERVA EL DERECHO DE MODIFICAR ESTOS TÉRMINOS EN CUALQUIER MOMENTO.</li>
+        </ul>
+        <button type="button" class="legal-accept" data-accept>ACEPTAR</button>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- VISTA: HABEAS DATA -->
+  <div class="view" id="habeasView">
+    <div class="legal-wrap">
+      <span class="back-arrow" data-back>&#8249;</span>
+      <div class="legal-card">
+        <h1 class="legal-title">HABEAS DATA</h1>
+        <p class="legal-intro">
+          DE CONFORMIDAD CON LA LEGISLACIÓN VIGENTE SOBRE PROTECCIÓN DE DATOS PERSONALES, EL USUARIO AUTORIZA A MEDLIFE PARA RECOLECTAR, ALMACENAR, USAR Y TRATAR LA INFORMACIÓN PERSONAL SUMINISTRADA A TRAVÉS DE LA PÁGINA WEB.<br>
+          LOS DATOS SERÁN UTILIZADOS ÚNICAMENTE PARA:
+        </p>
+        <ul class="legal-list">
+          <li>GESTIONAR LAS CONSULTAS MÉDICAS VIRTUALES.</li>
+          <li>CONTACTAR AL USUARIO CUANDO SEA NECESARIO.</li>
+          <li>MEJORAR LA PRESTACIÓN DEL SERVICIO.</li>
+          <li>EL USUARIO TIENE DERECHO A CONOCER, ACTUALIZAR, RECTIFICAR O SOLICITAR LA ELIMINACIÓN DE SUS DATOS PERSONALES EN CUALQUIER MOMENTO.</li>
+          <li>AL UTILIZAR LA PLATAFORMA Y PROPORCIONAR SU INFORMACIÓN, EL USUARIO ACEPTA EL TRATAMIENTO DE SUS DATOS PERSONALES CONFORME A ESTA AUTORIZACIÓN DE HABEAS DATA.</li>
+        </ul>
+        <button type="button" class="legal-accept" data-accept>ACEPTAR</button>
+      </div>
+    </div>
+  </div>
+ 
+</div>
+ 
+<script>
+  // Toggle logic for all dropdowns
+  document.querySelectorAll('.select-display').forEach(function (display) {
+    display.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var panel = document.getElementById(display.getAttribute('data-target'));
+      var isOpen = panel.classList.contains('show');
+ 
+      document.querySelectorAll('.dropdown-panel').forEach(function (p) { p.classList.remove('show'); });
+      document.querySelectorAll('.select-display').forEach(function (d) { d.classList.remove('open'); });
+ 
+      if (!isOpen) {
+        panel.classList.add('show');
+        display.classList.add('open');
+      }
+    });
+ 
+    display.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        display.click();
+      }
+    });
+  });
+ 
+  // Select an option
+  document.querySelectorAll('.dropdown-panel div').forEach(function (option) {
+    option.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var panel = option.closest('.dropdown-panel');
+      var field = panel.closest('.field');
+      var label = field.querySelector('.select-label');
+      var display = field.querySelector('.select-display');
+ 
+      label.textContent = option.textContent.toUpperCase();
+      panel.querySelectorAll('div').forEach(function (d) { d.classList.remove('active'); });
+      option.classList.add('active');
+ 
+      panel.classList.remove('show');
+      display.classList.remove('open');
+    });
+  });
+ 
+  // Click outside closes all dropdowns
+  document.addEventListener('click', function () {
+    document.querySelectorAll('.dropdown-panel').forEach(function (p) { p.classList.remove('show'); });
+    document.querySelectorAll('.select-display').forEach(function (d) { d.classList.remove('open'); });
+  });
+ 
+  document.querySelectorAll('.dropdown-panel').forEach(function (panel) {
+    panel.addEventListener('click', function (e) { e.stopPropagation(); });
+  });
+ 
+  // Simple submit handler (demo)
+  document.getElementById('medlifeForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert('Formulario enviado (demo).');
+  });
+ 
+  // Navegación entre vistas (formulario / términos / habeas data)
+  function showView(id) {
+    document.querySelectorAll('.view').forEach(function (v) { v.classList.remove('active'); });
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+ 
+  document.getElementById('termsLink').addEventListener('click', function (e) {
+    e.preventDefault();
+    showView('termsView');
+  });
+ 
+  document.getElementById('habeasLink').addEventListener('click', function (e) {
+    e.preventDefault();
+    showView('habeasView');
+  });
+ 
+  document.querySelectorAll('[data-accept], [data-back]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      showView('mainView');
+    });
+  });
+</script>
+ 
+</body>
+</html>
