@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medlife - Virtual Healthcare</title>
+    <link rel="stylesheet" href="especialidades.css">
+    <!-- Iconos de FontAwesome para el footer -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navegación Superior -->
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-heart-pulse logo-icon"></i>
+            <div>
+                <h1>MEDLIFE</h1>
+                <span>VIRTUAL HEALTHCARE</span>
+            </div>
+        </div>
+        <nav class="nav-links">
+            <a href="#">INICIO</a>
+            <a href="#">NOSOTROS</a>
+            <a href="#" class="active">ESPECIALIDADES</a>
+            <a href="#">SERVICIOS</a>
+            <a href="#">BLOG</a>
+            <a href="#">FARMACIA</a>
+            <a href="#">PAGOS</a>
+        </nav>
+    </header>
+
+    <!-- Contenedor Principal (Grid de Especialidades) -->
+    <main id="main-view" class="view-section active">
+        <h2 class="section-title">Nuestras Especialidades</h2>
+        
+        <div class="specialties-grid">
+            <!-- Psicología -->
+            <div class="specialty-card" onclick="showDetail('psicologia')">
+                <h3 class="card-title">PSICOLOGÍA</h3>
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=300&q=80" alt="Psicología">
+                    <div class="overlay">
+                        <span>VER MAS</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Medicina General -->
+            <div class="specialty-card" onclick="showDetail('medicina-general')">
+                <h3 class="card-title">MEDICINA GEN.</h3>
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=300&q=80" alt="Medicina General">
+                    <div class="overlay">
+                        <span>VER MAS</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pediatría (Ejemplo inactivo visualmente) -->
+            <div class="specialty-card">
+                <h3 class="card-title">PEDIATRIA</h3>
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=300&q=80" alt="Pediatría">
+                    <div class="overlay"><span>VER MAS</span></div>
+                </div>
+            </div>
+
+            <!-- Enfermería -->
+            <div class="specialty-card" onclick="showDetail('enfermeria')">
+                <h3 class="card-title">ENFERMERIA</h3>
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?auto=format&fit=crop&w=300&q=80" alt="Enfermería">
+                    <div class="overlay">
+                        <i class="fa-solid fa-arrow-pointer cursor-icon"></i>
+                        <span>VER MAS</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Agrega el resto de las tarjetas según el diseño original... -->
+        </div>
+    </main>
+
+    <!-- Vista de Detalle: Medicina General -->
+    <section id="medicina-general" class="view-section detail-view">
+        <button class="btn-back" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i> Volver a Especialidades</button>
+        <h2 class="detail-title">MEDICINA GENERAL</h2>
+        <div class="detail-banner">
+            <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=1200&q=80" alt="Medicina General">
+        </div>
+        <div class="detail-info-card">
+            <p>BRINDAMOS ATENCIÓN MÉDICA INTEGRAL PARA LA PREVENCIÓN, DIAGNÓSTICO Y TRATAMIENTO DE ENFERMEDADES COMUNES. INCLUYE EVALUACIÓN CLÍNICA, ORIENTACIÓN MÉDICA, CONTROL DE SALUD Y SEGUIMIENTO DEL PACIENTE, CON EL OBJETIVO DE MANTENER Y MEJORAR SU BIENESTAR GENERAL.</p>
+        </div>
+        <div class="btn-container">
+            <button class="btn-consulta">REALIZA TU CONSULTA</button>
+        </div>
+    </section>
+
+    <!-- Vista de Detalle: Enfermería -->
+    <section id="enfermeria" class="view-section detail-view">
+        <button class="btn-back" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i> Volver a Especialidades</button>
+        <h2 class="detail-title">ENFERMERIA</h2>
+        <div class="detail-banner">
+            <img src="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?auto=format&fit=crop&w=1200&q=80" alt="Enfermería">
+        </div>
+        <div class="detail-info-card">
+            <p>BRINDA APOYO EN LA ATENCIÓN Y CUIDADO DE LOS PACIENTES, INCLUYENDO CONTROL DE SIGNOS VITALES, ADMINISTRACIÓN DE MEDICAMENTOS, CURACIONES Y ASISTENCIA EN PROCEDIMIENTOS MÉDICOS. SU OBJETIVO ES GARANTIZAR UNA ATENCIÓN SEGURA, OPORTUNA Y DE CALIDAD PARA EL BIENESTAR DEL PACIENTE.</p>
+        </div>
+        <div class="btn-container">
+            <button class="btn-consulta">REALIZA TU CONSULTA</button>
+        </div>
+    </section>
+
+    <!-- Vista de Detalle: Psicología -->
+    <section id="psicologia" class="view-section detail-view">
+        <button class="btn-back" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i> Volver a Especialidades</button>
+        <h2 class="detail-title">PSICOLOGIA</h2>
+        <div class="detail-banner">
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=80" alt="Psicología">
+        </div>
+        <div class="detail-info-card">
+            <p>BRINDAMOS ACOMPAÑAMIENTO PROFESIONAL PARA EL MANEJO DE EMOCIONES, ESTRÉS Y SALUD MENTAL, FORTALECIENDO TU BIENESTAR Y CALIDAD DE VIDA.</p>
+        </div>
+        <div class="btn-container">
+            <button class="btn-consulta">REALIZA TU CONSULTA</button>
+        </div>
+    </section>
+
+    <!-- Footer de Contacto (Visible en todas las pantallas) -->
+    <footer>
+        <div class="footer-contact">
+            <div class="contact-item">
+                <i class="fa-solid fa-phone"></i>
+                <span>+57 322 7048889</span>
+            </div>
+            <div class="contact-item">
+                <i class="fa-solid fa-envelope"></i>
+                <span>INFO@MEDILIFEGROUP.COM</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="especialidades.js"></script>
+</body>
+</html>
