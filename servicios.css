@@ -1,0 +1,184 @@
+/* ===== Variables del sistema de diseño Medlife ===== */
+:root {
+  --blue-primary: #1C86C4;
+  --blue-light: #4FB8D6;
+  --blue-btn-top: #3FB6E6;
+  --blue-btn-bottom: #1C86C4;
+  --gray-bar: #A6A6A6;
+  --gray-text: #58595B;
+  --gray-nav: #414042;
+  --bg-hero: #EEF3F6;
+}
+
+/* ===== Reset básico ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #ffffff;
+}
+
+/* ===== Header / Nav ===== */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 60px;
+  background: #ffffff;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  width: 44px;
+  height: auto;
+  display: block;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo-title {
+  font-weight: 800;
+  font-size: 26px;
+  color: var(--blue-primary);
+  letter-spacing: 0.5px;
+}
+
+.logo-subtitle {
+  font-weight: 600;
+  font-size: 11px;
+  color: var(--blue-light);
+  letter-spacing: 2px;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--gray-nav);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.main-nav a.active,
+.main-nav a:hover {
+  color: var(--blue-primary);
+}
+
+/* ===== Barra gris ===== */
+.gray-bar {
+  width: 100%;
+  height: 36px;
+  background: var(--gray-bar);
+}
+
+/* ===== Sección Servicios (hero) ===== */
+.servicios-hero {
+  background: var(--bg-hero);
+  padding: 60px 80px 80px;
+}
+
+.servicios-hero h1 {
+  color: var(--blue-primary);
+  font-weight: 800;
+  font-size: clamp(28px, 4vw, 44px);
+  margin-bottom: 50px;
+  max-width: 900px;
+}
+
+/* ===== Tarjetas de opciones ===== */
+.options {
+  display: flex;
+  justify-content: center;
+  gap: 140px;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.option-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.option-icon {
+  width: 130px;
+  height: 130px;
+}
+
+.btn-pill {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+  padding: 14px 34px;
+  border-radius: 50px;
+  background: linear-gradient(180deg, var(--blue-btn-top), var(--blue-btn-bottom));
+  box-shadow: 0 4px 10px rgba(28, 134, 196, 0.35);
+}
+
+/* ===== Párrafo descriptivo ===== */
+.servicios-description {
+  max-width: 950px;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--gray-text);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  line-height: 1.9;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .site-header {
+    flex-direction: column;
+    gap: 14px;
+    padding: 16px 24px;
+  }
+
+  .main-nav {
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .servicios-hero {
+    padding: 40px 24px 60px;
+  }
+
+  .options {
+    gap: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .options {
+    flex-direction: column;
+    align-items: center;
+  }
+}
