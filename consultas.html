@@ -3,288 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Realiza tu consulta</title>
-<style>
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: #eef2f5;
-  }
- 
-  .app {
-    max-width: 640px;
-    margin: 0 auto;
-    background: #fff;
-    min-height: 100vh;
-  }
- 
-  /* Header */
-  .header {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 18px 20px;
-    border-bottom: 1px solid #e5e5e5;
-  }
-  .logo-icon {
-    width: 42px;
-    height: 42px;
-    flex-shrink: 0;
-  }
-  .brand-name {
-    font-weight: 800;
-    font-size: 20px;
-    color: #1f2d3d;
-    line-height: 1.1;
-  }
-  .brand-name span {
-    display: block;
-    font-weight: 400;
-    font-size: 11px;
-    letter-spacing: 1px;
-    color: #2fa9e0;
-    margin-top: 2px;
-  }
-  .header-text {
-    font-size: 12px;
-    color: #333;
-    line-height: 1.4;
-    flex: 1;
-  }
- 
-  /* Title bar */
-  .title-bar {
-    background: #9aa1a6;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    font-size: 14px;
-    letter-spacing: 1px;
-    position: relative;
-  }
-  .back-arrow {
-    position: absolute;
-    left: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 18px;
-    cursor: pointer;
-  }
- 
-  /* Form container */
-  .form-wrap {
-    background: linear-gradient(180deg, #2fa9e0, #1f7fc4);
-    padding: 24px 20px 40px;
-  }
-  .form-card {
-    background: #fff;
-    border-radius: 20px;
-    padding: 24px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-  }
- 
-  .row {
-    display: flex;
-    gap: 14px;
-  }
-  .row .field { flex: 1; min-width: 0; }
- 
-  .field { position: relative; }
- 
-  .field input,
-  .field .select-display {
-    width: 100%;
-    padding: 13px 18px;
-    border-radius: 24px;
-    border: 1px solid #c9ced3;
-    font-size: 13px;
-    color: #8a8f94;
-    outline: none;
-    background: #fff;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: .2px;
-  }
-  .field input::placeholder {
-    color: #8a8f94;
-    text-transform: uppercase;
-  }
-  .field input:focus,
-  .select-display:focus {
-    border-color: #2fa9e0;
-  }
- 
-  .select-display {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    user-select: none;
-  }
-  .select-display .arrow {
-    color: #1f2d3d;
-    font-size: 11px;
-    margin-left: 8px;
-    transition: transform .2s ease;
-  }
-  .select-display.open .arrow {
-    transform: rotate(180deg);
-  }
- 
-  /* Dropdown panel */
-  .dropdown-panel {
-    display: none;
-    position: absolute;
-    top: calc(100% + 6px);
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-radius: 14px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    z-index: 50;
-    max-height: 240px;
-    overflow-y: auto;
-    border: 1px solid #e2e5e8;
-  }
-  .dropdown-panel.show { display: block; }
- 
-  .dropdown-panel div {
-    padding: 12px 18px;
-    font-size: 13px;
-    color: #333;
-    letter-spacing: .3px;
-    cursor: pointer;
-  }
-  .dropdown-panel div:hover,
-  .dropdown-panel div.active {
-    background: #2fa9e0;
-    color: #fff;
-  }
- 
-  .terms {
-    text-align: center;
-    font-size: 11.5px;
-    color: #333;
-    line-height: 1.6;
-  }
-  .terms a {
-    color: #1f7fc4;
-    text-decoration: underline;
-    font-weight: 600;
-  }
- 
-  .submit-btn {
-    background: linear-gradient(180deg, #38b6f0, #1f7fc4);
-    color: #fff;
-    border: none;
-    padding: 14px;
-    border-radius: 26px;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: .5px;
-    cursor: pointer;
-    margin-top: 4px;
-  }
-  .submit-btn:hover { filter: brightness(1.05); }
- 
-  @media (max-width: 480px) {
-    .row { flex-direction: column; }
-  }
- 
-  /* Legal pages (Términos y Condiciones / Habeas Data) */
-  .view { display: none; }
-  .view.active { display: block; }
- 
-  .legal-wrap {
-    background: linear-gradient(180deg, #2fa9e0, #1f7fc4);
-    padding: 24px 20px 40px;
-    position: relative;
-  }
-  .legal-back {
-    position: absolute;
-    top: 18px;
-    left: 18px;
-    color: #fff;
-    font-size: 22px;
-    cursor: pointer;
-    z-index: 5;
-  }
-  .legal-card {
-    background: #fff;
-    border-radius: 20px;
-    padding: 30px 26px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-  }
-  .legal-title {
-    text-align: center;
-    font-size: 26px;
-    font-weight: 800;
-    color: #333;
-    letter-spacing: .5px;
-    margin: 0 0 14px;
-  }
-  .legal-subtitle {
-    text-align: center;
-    font-size: 13px;
-    font-weight: 700;
-    color: #333;
-    margin: 0 0 18px;
-  }
-  .legal-intro {
-    font-size: 13px;
-    color: #333;
-    line-height: 1.5;
-    margin: 0 0 14px;
-  }
-  .legal-list {
-    margin: 0 0 22px;
-    padding-left: 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .legal-list li {
-    font-size: 13px;
-    color: #333;
-    line-height: 1.5;
-  }
-  .legal-list li strong {
-    font-weight: 700;
-  }
-  .legal-accept {
-    display: block;
-    width: 100%;
-    background: linear-gradient(180deg, #38b6f0, #1f7fc4);
-    color: #fff;
-    border: none;
-    padding: 14px;
-    border-radius: 26px;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: .5px;
-    cursor: pointer;
-  }
-  .legal-accept:hover { filter: brightness(1.05); }
-</style>
+<title>Realiza tu consulta - MEDLIFE</title>
+<link rel="stylesheet" href="consultas.css">
 </head>
 <body>
  
 <div class="app">
  
   <div class="header">
-    <svg class="logo-icon" viewBox="0 0 64 64" fill="none">
-      <path d="M32 54s-22-13.5-22-29.5C10 15 17 9 25 9c4 0 8 2 7 9 0 0 0-9 9-9 8 0 15 6 15 15.5C56 40.5 32 54 32 54z"
-        stroke="#2fa9e0" stroke-width="3.5" stroke-linejoin="round" fill="none"/>
-      <path d="M18 27h9l4-8 6 16 4-8h9" stroke="#2fa9e0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    </svg>
-    <div class="header-text">
+    <div class="logo-block">
+      <svg class="logo-icon" viewBox="0 0 90 60" fill="none">
+        <path d="M45 50s-30-11.5-30-26.5C15 13 22 8 29 8c5 0 9 2.5 8 8 0 0 0-8 8-8 7 0 13 5 13 13.5C58 38.5 45 50 45 50z"
+          stroke="#1f7fc4" stroke-width="4" stroke-linejoin="round" fill="none"/>
+        <path d="M22 25h10l4-7 6 14 4-7h10" stroke="#1f7fc4" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
       <div class="brand-name">MEDLIFE<span>VIRTUAL HEALTHCARE</span></div>
     </div>
-    <div class="header-text" style="text-align:right; flex:1.4;">
-      ENVÍANOS LOS SIGUIENTES DATOS PARA ASIGNARTE EL SERVICIO MÉDICO QUE REQUIERAS.
+    <div class="header-text">
+      ENVÍANOS LOS SIGUIENTES DATOS PARA ASIGNARTE EL SERVICIO MÉDICO QUE REQUIERAS.<br>
       PODEMOS ATENDERTE POR VIDEOLLAMADAS, CHAT 24/7 O EN CONSULTORIOS VIRTUALES
     </div>
   </div>
@@ -387,7 +123,7 @@
   <!-- VISTA: TÉRMINOS Y CONDICIONES -->
   <div class="view" id="termsView">
     <div class="legal-wrap">
-      <span class="legal-back" data-back>&#8249;</span>
+      <span class="back-arrow" data-back>&#8249;</span>
       <div class="legal-card">
         <h1 class="legal-title">TERMINOS Y CONDICIONES</h1>
         <p class="legal-subtitle">AL UTILIZAR EL SITIO WEB DE MEDLIFE, EL USUARIO ACEPTA LOS SIGUIENTES TÉRMINOS</p>
@@ -406,7 +142,7 @@
   <!-- VISTA: HABEAS DATA -->
   <div class="view" id="habeasView">
     <div class="legal-wrap">
-      <span class="legal-back" data-back>&#8249;</span>
+      <span class="back-arrow" data-back>&#8249;</span>
       <div class="legal-card">
         <h1 class="legal-title">HABEAS DATA</h1>
         <p class="legal-intro">
@@ -435,7 +171,6 @@
       var panel = document.getElementById(display.getAttribute('data-target'));
       var isOpen = panel.classList.contains('show');
  
-      // Close all other panels first
       document.querySelectorAll('.dropdown-panel').forEach(function (p) { p.classList.remove('show'); });
       document.querySelectorAll('.select-display').forEach(function (d) { d.classList.remove('open'); });
  
@@ -445,7 +180,6 @@
       }
     });
  
-    // Keyboard support (Enter / Space)
     display.addEventListener('keydown', function (e) {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -478,18 +212,17 @@
     document.querySelectorAll('.select-display').forEach(function (d) { d.classList.remove('open'); });
   });
  
-  // Prevent dropdown panel clicks from bubbling to document
   document.querySelectorAll('.dropdown-panel').forEach(function (panel) {
     panel.addEventListener('click', function (e) { e.stopPropagation(); });
   });
  
-  // Simple submit handler (prevents page reload for demo)
+  // Simple submit handler (demo)
   document.getElementById('medlifeForm').addEventListener('submit', function (e) {
     e.preventDefault();
     alert('Formulario enviado (demo).');
   });
  
-  // Navigation between views (formulario / términos / habeas data)
+  // Navegación entre vistas (formulario / términos / habeas data)
   function showView(id) {
     document.querySelectorAll('.view').forEach(function (v) { v.classList.remove('active'); });
     document.getElementById(id).classList.add('active');
@@ -506,7 +239,6 @@
     showView('habeasView');
   });
  
-  // "ACEPTAR" and back arrow both return to the main form
   document.querySelectorAll('[data-accept], [data-back]').forEach(function (btn) {
     btn.addEventListener('click', function () {
       showView('mainView');
