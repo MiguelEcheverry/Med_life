@@ -5,141 +5,226 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medlife - Virtual Healthcare</title>
     <link rel="stylesheet" href="especialidades.css">
-    <!-- Iconos de FontAwesome para el footer -->
+    <!-- Tipografías (coherentes con el prototipo del hero) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Iconos de FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
     <!-- Navegación Superior -->
-    <header class="navbar">
-        <div class="logo">
+    <header>
+        <div class="logo" onclick="goBack()">
             <i class="fa-solid fa-heart-pulse logo-icon"></i>
-            <div>
+            <div class="logo-text">
                 <h1>MEDLIFE</h1>
                 <span>VIRTUAL HEALTHCARE</span>
             </div>
         </div>
-        <nav class="nav-links">
-            <a href="#">INICIO</a>
-            <a href="#">NOSOTROS</a>
-            <a href="#" class="active">ESPECIALIDADES</a>
-            <a href="#">SERVICIOS</a>
-            <a href="#">BLOG</a>
-            <a href="#">FARMACIA</a>
-            <a href="#">PAGOS</a>
-        </nav>
+        <ul class="nav-links">
+            <li><a id="nav-inicio" class="active" onclick="goBack()">INICIO</a></li>
+            <li><a href="#">NOSOTROS</a></li>
+            <li><a id="nav-especialidades" onclick="scrollToSpecialties()">ESPECIALIDADES</a></li>
+            <li><a href="#">SERVICIOS</a></li>
+            <li><a href="#">BLOG</a></li>
+            <li><a href="#">FARMACIA</a></li>
+            <li><a href="#">PAGOS</a></li>
+        </ul>
+        <div class="user-profile"><i class="fa-solid fa-user"></i></div>
     </header>
 
-    <!-- Contenedor Principal (Grid de Especialidades) -->
-    <main id="main-view" class="view-section active">
-        <h2 class="section-title">Nuestras Especialidades</h2>
-        
-        <div class="specialties-grid">
-            <!-- Psicología -->
-            <div class="specialty-card" onclick="showDetail('psicologia')">
-                <h3 class="card-title">PSICOLOGÍA</h3>
-                <div class="img-container">
-                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=300&q=80" alt="Psicología">
-                    <div class="overlay">
-                        <span>VER MAS</span>
-                    </div>
-                </div>
+    <main>
+        <!-- Vista Principal: Hero + Grid de Especialidades -->
+        <section id="home-view" class="view-section active">
+
+            <div class="hero">
+                <div class="hero-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                <h2>Atención médica inmediata, sin salir de casa.</h2>
+                <p>Transformamos la atención médica para que accedas a consultas y medicamentos sin complicaciones</p>
+                <button class="btn" onclick="scrollToSpecialties()">REALIZA TU CONSULTA</button>
+                <div class="scroll-indicator" onclick="scrollToSpecialties()"><i class="fa-solid fa-chevron-down"></i></div>
             </div>
 
-            <!-- Medicina General -->
-            <div class="specialty-card" onclick="showDetail('medicina-general')">
-                <h3 class="card-title">MEDICINA GEN.</h3>
-                <div class="img-container">
-                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=300&q=80" alt="Medicina General">
-                    <div class="overlay">
-                        <span>VER MAS</span>
-                    </div>
-                </div>
-            </div>
+            <div class="specialties-section" id="specialties">
+                <h2 class="section-title">Nuestras Especialidades</h2>
 
-            <!-- Pediatría (Ejemplo inactivo visualmente) -->
-            <div class="specialty-card">
-                <h3 class="card-title">PEDIATRIA</h3>
-                <div class="img-container">
-                    <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=300&q=80" alt="Pediatría">
-                    <div class="overlay"><span>VER MAS</span></div>
-                </div>
-            </div>
+                <div class="specialties-grid">
 
-            <!-- Enfermería -->
-            <div class="specialty-card" onclick="showDetail('enfermeria')">
-                <h3 class="card-title">ENFERMERIA</h3>
-                <div class="img-container">
-                    <img src="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?auto=format&fit=crop&w=300&q=80" alt="Enfermería">
-                    <div class="overlay">
-                        <i class="fa-solid fa-arrow-pointer cursor-icon"></i>
-                        <span>VER MAS</span>
+                    <div class="specialty-card" onclick="showDetail('psicologia')">
+                        <h3 class="card-title">PSICOLOGÍA</h3>
+                        <div class="img-container">
+                            <img src="https://www.google.com/imgres?q=psicologia%20medica&imgurl=https%3A%2F%2Fportalcientifico.unav.edu%2Fimg%2Fuploaded%2FC5F6C86A3BB53D166F25FF1073FFFD80.jpg&imgrefurl=https%3A%2F%2Fportalcientifico.unav.edu%2Funidades%2F22164%2Fdetalle&docid=0UR7HyB6HhmVOM&tbnid=tT6bNKtH971z8M&vet=12ahUKEwi0moeR6ueVAxWkSTABHarOKRkQnPAOegUI3gQQAA..i&w=599&h=401&hcb=2&ved=2ahUKEwi0moeR6ueVAxWkSTABHarOKRkQnPAOegUI3gQQAA
+                            " alt="Psicología">
+                            <div class="overlay"><i class="fa-solid fa-arrow-pointer cursor-icon"></i><span>VER MAS</span></div>
+                        </div>
                     </div>
+
+                    <div class="specialty-card" onclick="showDetail('medicina-general')">
+                        <h3 class="card-title">MEDICINA GEN.</h3>
+                        <div class="img-container">
+                            <img src="images/grid-medicina-general.jpg" alt="Medicina General">
+                            <div class="overlay"><i class="fa-solid fa-arrow-pointer cursor-icon"></i><span>VER MAS</span></div>
+                        </div>
+                    </div>
+
+                    <div class="specialty-card" onclick="showDetail('pediatria')">
+                        <h3 class="card-title">PEDIATRIA</h3>
+                        <div class="img-container">
+                            <img src="images/grid-pediatria.jpg" alt="Pediatría">
+                            <div class="overlay"><i class="fa-solid fa-arrow-pointer cursor-icon"></i><span>VER MAS</span></div>
+                        </div>
+                    </div>
+
+                    <div class="specialty-card" onclick="showDetail('enfermeria')">
+                        <h3 class="card-title">ENFERMERIA</h3>
+                        <div class="img-container">
+                            <img src="images/grid-enfermeria.jpg" alt="Enfermería">
+                            <div class="overlay"><i class="fa-solid fa-arrow-pointer cursor-icon"></i><span>VER MAS</span></div>
+                        </div>
+                    </div>
+
+                    <div class="specialty-card" onclick="showDetail('nutricion')">
+                        <h3 class="card-title">NUTRICION</h3>
+                        <div class="img-container">
+                            <img src="images/grid-nutricion.jpg" alt="Nutrición">
+                            <div class="overlay"><i class="fa-solid fa-arrow-pointer cursor-icon"></i><span>VER MAS</span></div>
+                        </div>
+                    </div>
+
+                    <div class="specialty-card" onclick="showDetail('cardiologia')">
+                        <h3 class="card-title">CARDIOLOGIA</h3>
+                        <div class="img-container">
+                            <img src="images/grid-cardiologia.jpg" alt="Cardiología">
+                            <div class="overlay"><i class="fa-solid fa-arrow-pointer cursor-icon"></i><span>VER MAS</span></div>
+                        </div>
+                    </div>
+
+                    <div class="specialty-card" onclick="showDetail('terapia-fisica')">
+                        <h3 class="card-title">TERAPIA FISICA</h3>
+                        <div class="img-container">
+                            <img src="images/grid-terapia-fisica.jpg" alt="Terapia Física">
+                            <div class="overlay"><i class="fa-solid fa-arrow-pointer cursor-icon"></i><span>VER MAS</span></div>
+                        </div>
+                    </div>
+
+                    <div class="specialty-card" onclick="showDetail('psiquiatria')">
+                        <h3 class="card-title">PSIQUIATRIA</h3>
+                        <div class="img-container">
+                            <img src="images/grid-psiquiatria.jpg" alt="Psiquiatría">
+                            <div class="overlay"><i class="fa-solid fa-arrow-pointer cursor-icon"></i><span>VER MAS</span></div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            
-            <!-- Agrega el resto de las tarjetas según el diseño original... -->
-        </div>
+        </section>
+
+        <!-- Vista de Detalle: Psicología -->
+        <section id="psicologia" class="view-section detail-view">
+            <button class="btn-back" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i> Volver a Especialidades</button>
+            <h2 class="detail-title">PSICOLOGIA</h2>
+            <div class="detail-banner"><img src="images/banner-psicologia.jpg" alt="Psicología"></div>
+            <div class="detail-info-card">
+                <p>Brindamos acompañamiento profesional para el manejo de emociones, estrés y salud mental, fortaleciendo tu bienestar y calidad de vida.</p>
+            </div>
+            <div class="btn-container"><button class="btn-consulta">REALIZA TU CONSULTA</button></div>
+        </section>
+
+        <!-- Vista de Detalle: Medicina General -->
+        <section id="medicina-general" class="view-section detail-view">
+            <button class="btn-back" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i> Volver a Especialidades</button>
+            <h2 class="detail-title">MEDICINA GENERAL</h2>
+            <div class="detail-banner"><img src="images/banner-medicina-general.jpg" alt="Medicina General"></div>
+            <div class="detail-info-card">
+                <p>Brindamos atención médica integral para la prevención, diagnóstico y tratamiento de enfermedades comunes. Incluye evaluación clínica, orientación médica, control de salud y seguimiento del paciente, con el objetivo de mantener y mejorar su bienestar general.</p>
+            </div>
+            <div class="btn-container"><button class="btn-consulta">REALIZA TU CONSULTA</button></div>
+        </section>
+
+        <!-- Vista de Detalle: Pediatría -->
+        <section id="pediatria" class="view-section detail-view">
+            <button class="btn-back" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i> Volver a Especialidades</button>
+            <h2 class="detail-title">PEDIATRIA</h2>
+            <div class="detail-banner"><img src="images/banner-pediatria.jpg" alt="Pediatría"></div>
+            <div class="detail-info-card">
+                <p>Brindamos atención médica especializada para niños y adolescentes, acompañando su crecimiento y desarrollo con controles preventivos, diagnóstico oportuno y tratamiento adecuado en cada etapa.</p>
+            </div>
+            <div class="btn-container"><button class="btn-consulta">REALIZA TU CONSULTA</button></div>
+        </section>
+
+        <!-- Vista de Detalle: Enfermería -->
+        <section id="enfermeria" class="view-section detail-view">
+            <button class="btn-back" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i> Volver a Especialidades</button>
+            <h2 class="detail-title">ENFERMERIA</h2>
+            <div class="detail-banner"><img src="images/banner-enfermeria.jpg" alt="Enfermería"></div>
+            <div class="detail-info-card">
+                <p>Brinda apoyo en la atención y cuidado de los pacientes, incluyendo control de signos vitales, administración de medicamentos, curaciones y asistencia en procedimientos médicos. Su objetivo es garantizar una atención segura, oportuna y de calidad para el bienestar del paciente.</p>
+            </div>
+            <div class="btn-container"><button class="btn-consulta">REALIZA TU CONSULTA</button></div>
+        </section>
+
+        <!-- Vista de Detalle: Nutrición -->
+        <section id="nutricion" class="view-section detail-view">
+            <button class="btn-back" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i> Volver a Especialidades</button>
+            <h2 class="detail-title">NUTRICION</h2>
+            <div class="detail-banner"><img src="images/banner-nutricion.jpg" alt="Nutrición"></div>
+            <div class="detail-info-card">
+                <p>Ofrece asesoría profesional para mejorar los hábitos alimenticios y promover una alimentación saludable. Incluye evaluación nutricional, elaboración de planes de alimentación personalizados y orientación para la prevención y manejo de diferentes condiciones de salud.</p>
+            </div>
+            <div class="btn-container"><button class="btn-consulta">REALIZA TU CONSULTA</button></div>
+        </section>
+
+        <!-- Vista de Detalle: Cardiología -->
+        <section id="cardiologia" class="view-section detail-view">
+            <button class="btn-back" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i> Volver a Especialidades</button>
+            <h2 class="detail-title">CARDIOLOGIA</h2>
+            <div class="detail-banner"><img src="images/banner-cardiologia.jpg" alt="Cardiología"></div>
+            <div class="detail-info-card">
+                <p>Se especializa en la prevención, diagnóstico y tratamiento de enfermedades del corazón y del sistema cardiovascular. Ofrece evaluación médica, control de factores de riesgo y seguimiento para mantener una buena salud cardíaca y prevenir complicaciones.</p>
+            </div>
+            <div class="btn-container"><button class="btn-consulta">REALIZA TU CONSULTA</button></div>
+        </section>
+
+        <!-- Vista de Detalle: Terapia Física -->
+        <section id="terapia-fisica" class="view-section detail-view">
+            <button class="btn-back" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i> Volver a Especialidades</button>
+            <h2 class="detail-title">TERAPIA FISICA</h2>
+            <div class="detail-banner"><img src="images/banner-terapia-fisica.jpg" alt="Terapia Física"></div>
+            <div class="detail-info-card">
+                <p>Se enfoca en la prevención, tratamiento y rehabilitación de lesiones o condiciones que afectan el movimiento y la función física del cuerpo. A través de ejercicios terapéuticos y técnicas especializadas, se busca mejorar la movilidad, reducir el dolor y favorecer la recuperación del paciente.</p>
+            </div>
+            <div class="btn-container"><button class="btn-consulta">REALIZA TU CONSULTA</button></div>
+        </section>
+
+        <!-- Vista de Detalle: Psiquiatría -->
+        <section id="psiquiatria" class="view-section detail-view">
+            <button class="btn-back" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i> Volver a Especialidades</button>
+            <h2 class="detail-title">PSIQUIATRIA</h2>
+            <div class="detail-banner"><img src="images/banner-psiquiatria.jpg" alt="Psiquiatría"></div>
+            <div class="detail-info-card">
+                <p>Brinda atención médica especializada para la prevención, diagnóstico y tratamiento de trastornos de salud mental. Incluye evaluación clínica, manejo terapéutico y, cuando es necesario, tratamiento farmacológico para mejorar el bienestar emocional y la calidad de vida del paciente.</p>
+            </div>
+            <div class="btn-container"><button class="btn-consulta">REALIZA TU CONSULTA</button></div>
+        </section>
+
     </main>
-
-    <!-- Vista de Detalle: Medicina General -->
-    <section id="medicina-general" class="view-section detail-view">
-        <button class="btn-back" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i> Volver a Especialidades</button>
-        <h2 class="detail-title">MEDICINA GENERAL</h2>
-        <div class="detail-banner">
-            <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=1200&q=80" alt="Medicina General">
-        </div>
-        <div class="detail-info-card">
-            <p>BRINDAMOS ATENCIÓN MÉDICA INTEGRAL PARA LA PREVENCIÓN, DIAGNÓSTICO Y TRATAMIENTO DE ENFERMEDADES COMUNES. INCLUYE EVALUACIÓN CLÍNICA, ORIENTACIÓN MÉDICA, CONTROL DE SALUD Y SEGUIMIENTO DEL PACIENTE, CON EL OBJETIVO DE MANTENER Y MEJORAR SU BIENESTAR GENERAL.</p>
-        </div>
-        <div class="btn-container">
-            <button class="btn-consulta">REALIZA TU CONSULTA</button>
-        </div>
-    </section>
-
-    <!-- Vista de Detalle: Enfermería -->
-    <section id="enfermeria" class="view-section detail-view">
-        <button class="btn-back" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i> Volver a Especialidades</button>
-        <h2 class="detail-title">ENFERMERIA</h2>
-        <div class="detail-banner">
-            <img src="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?auto=format&fit=crop&w=1200&q=80" alt="Enfermería">
-        </div>
-        <div class="detail-info-card">
-            <p>BRINDA APOYO EN LA ATENCIÓN Y CUIDADO DE LOS PACIENTES, INCLUYENDO CONTROL DE SIGNOS VITALES, ADMINISTRACIÓN DE MEDICAMENTOS, CURACIONES Y ASISTENCIA EN PROCEDIMIENTOS MÉDICOS. SU OBJETIVO ES GARANTIZAR UNA ATENCIÓN SEGURA, OPORTUNA Y DE CALIDAD PARA EL BIENESTAR DEL PACIENTE.</p>
-        </div>
-        <div class="btn-container">
-            <button class="btn-consulta">REALIZA TU CONSULTA</button>
-        </div>
-    </section>
-
-    <!-- Vista de Detalle: Psicología -->
-    <section id="psicologia" class="view-section detail-view">
-        <button class="btn-back" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i> Volver a Especialidades</button>
-        <h2 class="detail-title">PSICOLOGIA</h2>
-        <div class="detail-banner">
-            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=80" alt="Psicología">
-        </div>
-        <div class="detail-info-card">
-            <p>BRINDAMOS ACOMPAÑAMIENTO PROFESIONAL PARA EL MANEJO DE EMOCIONES, ESTRÉS Y SALUD MENTAL, FORTALECIENDO TU BIENESTAR Y CALIDAD DE VIDA.</p>
-        </div>
-        <div class="btn-container">
-            <button class="btn-consulta">REALIZA TU CONSULTA</button>
-        </div>
-    </section>
 
     <!-- Footer de Contacto (Visible en todas las pantallas) -->
     <footer>
-        <div class="footer-contact">
-            <div class="contact-item">
-                <i class="fa-solid fa-phone"></i>
-                <span>+57 322 7048889</span>
-            </div>
-            <div class="contact-item">
-                <i class="fa-solid fa-envelope"></i>
-                <span>INFO@MEDILIFEGROUP.COM</span>
-            </div>
+        <div class="footer-item"><i class="fa-solid fa-heart-circle-check"></i></div>
+        <div class="footer-item">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:+573227048889">+57 322 7048889</a>
+        </div>
+        <div class="footer-item">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:info@medilifegroup.com">INFO@MEDILIFEGROUP.COM</a>
         </div>
     </footer>
+
+    <!-- Insignia flotante de asistente -->
+    <div class="ai-badge" id="ai-badge" title="Asistente virtual"><i class="fa-solid fa-wand-magic-sparkles"></i>IA+</div>
 
     <script src="especialidades.js"></script>
 </body>
