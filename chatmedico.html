@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MEDLIFE Virtual Healthcare</title>
+<link rel="stylesheet" href="chatmedico.css">
+</head>
+<body>
+<div id="app">
+ 
+  <!-- ============ LANDING VIEW ============ -->
+  <div id="landingView" class="view active">
+    <header>
+      <div class="logo">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M32 54C18 44 6 34 6 21C6 12 13 6 20 6C26 6 30 10 32 14C34 10 38 6 44 6C51 6 58 12 58 21C58 34 46 44 32 54Z" stroke="#1a7fb5" stroke-width="3.5"/>
+          <path d="M14 30H22L26 20L32 40L36 26L39 30H50" stroke="#1a7fb5" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="logo-text">
+          <div class="l1">MEDLIFE</div>
+          <div class="l2">VIRTUAL HEALTHCARE</div>
+        </div>
+      </div>
+      <nav>
+        <a>INICIO</a><a>NOSOTROS</a><a>ESPECIALIDADES</a><a class="active">SERVICIOS</a><a>BLOG</a><a>FARMACIA</a><a>PAGOS</a>
+      </nav>
+    </header>
+    <div class="subbar"></div>
+ 
+    <div class="hero">
+      <h1>Elige la forma en la que quieres ser atendido</h1>
+      <div class="choices">
+        <div class="choice">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="14" y="14" width="72" height="52" rx="6" stroke="#5fb8bd" stroke-width="3"/>
+            <line x1="14" y1="28" x2="86" y2="28" stroke="#5fb8bd" stroke-width="3"/>
+            <circle cx="21" cy="21" r="1.6" fill="#5fb8bd"/>
+            <circle cx="27" cy="21" r="1.6" fill="#5fb8bd"/>
+            <circle cx="33" cy="21" r="1.6" fill="#5fb8bd"/>
+            <path d="M50 74V80M40 86H60" stroke="#5fb8bd" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="30" cy="20" r="1.6" fill="#5fb8bd"/>
+            <path d="M44 34C48 26 54 26 58 34C62 42 68 46 74 40" stroke="#c98c9b" stroke-width="2.5" fill="none"/>
+            <path d="M24 50L34 50L38 40L45 58L50 46L54 50L76 50" stroke="#1a7fb5" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <button id="btnConsulta">CONSULTA GENERAL<br>MEDICO EN LINEA</button>
+        </div>
+        <div class="choice">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 12L38 22H62L50 12Z" stroke="#5fb8bd" stroke-width="3" stroke-linejoin="round"/>
+            <rect x="26" y="22" width="48" height="58" rx="3" stroke="#5fb8bd" stroke-width="3"/>
+            <rect x="44" y="18" width="12" height="12" fill="#fff" stroke="#5fb8bd" stroke-width="2.5"/>
+            <line x1="50" y1="20" x2="50" y2="28" stroke="#5fb8bd" stroke-width="2"/>
+            <line x1="46" y1="24" x2="54" y2="24" stroke="#5fb8bd" stroke-width="2"/>
+            <g stroke="#5fb8bd" stroke-width="2">
+              <rect x="32" y="32" width="8" height="8"/><rect x="46" y="32" width="8" height="8"/><rect x="60" y="32" width="8" height="8"/>
+              <rect x="32" y="44" width="8" height="8"/><rect x="46" y="44" width="8" height="8"/><rect x="60" y="44" width="8" height="8"/>
+            </g>
+            <rect x="42" y="60" width="16" height="20" stroke="#5fb8bd" stroke-width="2.5"/>
+            <line x1="50" y1="60" x2="50" y2="80" stroke="#5fb8bd" stroke-width="2"/>
+          </svg>
+          <button id="btnIA">ORIENTACIÓN CON<br>AYUDA DE IA</button>
+        </div>
+      </div>
+      <p class="tagline">NUESTROS PROFESIONALES DE LA SALUD SON LA CLAVE PARA BRINDARTE EL MEJOR SERVICIO MÉDICO PARTICULAR. SON CERCANOS, COMPRENSIVOS, CERTIFICADOS Y ESTÁN DISPONIBLES PARA TI EN EL MOMENTO QUE LOS NECESITES. COMUNÍCATE CON NOSOTROS</p>
+      <div class="scrollbar-deco"></div>
+      <div class="ai-badge">IA+</div>
+    </div>
+  </div>
+ 
+  <!-- ============ CHAT VIEW ============ -->
+  <div id="chatView" class="view">
+    <div class="chat-topbar">
+      <span class="back" id="backBtn">&#8249;</span>
+      <span class="title">CHAT</span>
+    </div>
+    <div class="chat-body">
+ 
+      <!-- LEFT -->
+      <div class="panel-left">
+        <div class="panel-label">PERFIL</div>
+        <div class="doctor-row">
+          <div class="avatar-circle">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="#fff"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
+          </div>
+          <div>
+            <div class="doctor-name">ISABEL DUQUE</div>
+            <div class="doctor-spec">MEDICINA GENERAL</div>
+          </div>
+        </div>
+        <div class="contact-row"><div class="contact-avatar"></div><div class="contact-line"></div></div>
+        <div class="contact-row"><div class="contact-avatar"></div><div class="contact-line"></div></div>
+        <div class="contact-row"><div class="contact-avatar"></div><div class="contact-line"></div></div>
+        <div class="contact-row"><div class="contact-avatar"></div><div class="contact-line"></div></div>
+        <div class="contact-row"><div class="contact-avatar"></div><div class="contact-line"></div></div>
+        <div class="contact-row"><div class="contact-avatar"></div><div class="contact-line"></div></div>
+      </div>
+ 
+      <!-- MIDDLE -->
+      <div class="panel-mid">
+        <div class="search-bar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1a7fb5" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="searchInput" type="text" placeholder="Buscar...">
+        </div>
+        <div class="consult-label">CONSULTA GENERAL</div>
+        <div class="messages" id="messages">
+          <div class="msg-row mine"><div class="bubble patient">HOLA DOCTORA, NO HE TENIDO MAS FIEBRE DESDE AYER</div></div>
+          <div class="msg-row">
+            <div class="avatar-circle"><svg viewBox="0 0 24 24" width="20" height="20" fill="#fff"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+            <div class="bubble doctor">HOLA SANTY, ¿HAS TENIDO FIEBRE LOS ULTIMOS 3 DIAS?</div>
+          </div>
+          <div class="msg-row mine"><div class="bubble patient">SI, DOCTORA, ME SIGO SINTIENDO MAL</div></div>
+        </div>
+        <div class="composer">
+          <button class="plus-btn" id="plusBtn">+</button>
+          <div class="attach-menu" id="attachMenu">
+            <div>CAMARA</div><div>SUBIR ARCHIVO</div><div>FOTOS</div><div>COMPLEMENTOS</div>
+          </div>
+          <input id="chatInput" type="text" placeholder="Escribe un mensaje...">
+        </div>
+      </div>
+ 
+      <!-- RIGHT -->
+      <div class="panel-right">
+        <div class="patient-header">
+          <div class="patient-photo"><svg viewBox="0 0 24 24" width="24" height="24" fill="#fff"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+          <div class="patient-info">
+            <div class="ficha-label">FICHA DE PACIENTE</div>
+            <div class="patient-name">SANTY OSORNO</div>
+            <div class="patient-age">23 AÑOS</div>
+          </div>
+        </div>
+        <div class="bar-line" style="width:80%;"></div>
+ 
+        <div class="icon-row">
+          <div class="icon-btn filled" id="iconPhone"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.4 21 3 13.6 3 4.9c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg></div>
+          <div class="icon-btn" id="iconCamera"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.6-3h4.8L16 7"/><circle cx="12" cy="13.5" r="3.5"/></svg></div>
+          <div class="icon-btn" id="iconChat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 1 1-3.2-6.4L21 4l-1 4.4A8 8 0 0 1 21 12z"/></svg></div>
+        </div>
+ 
+        <div>
+          <div class="section-label">PROXIMA CONSULTA</div>
+          <div class="next-box">
+            <div class="date-chip">VIE<br>25</div>
+            <div style="flex:1;">
+              <div class="bar-line" style="width:90%;"></div>
+              <div class="bar-line" style="width:60%;"></div>
+            </div>
+          </div>
+        </div>
+ 
+        <div>
+          <div class="section-label">TRATAMIENTO</div>
+          <div id="treatmentBox">
+            <div class="bar-line" style="width:100%;"></div>
+            <div class="bar-line" style="width:95%;"></div>
+            <div class="bar-line" style="width:80%;"></div>
+          </div>
+        </div>
+ 
+        <div id="archivosSection">
+          <div class="section-label">ARCHIVOS</div>
+          <div class="archivo-thumb" id="archivoThumb">
+            <img src="https://i.imgur.com/6bYQZ9m.png" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='block';" alt="receta">
+            <div class="fallback" style="display:none;">
+              <svg viewBox="0 0 200 140" width="100%"><rect width="200" height="140" fill="#fff" stroke="#1a7fb5" stroke-width="2"/><text x="10" y="20" font-size="8" fill="#1a7fb5" font-weight="bold">DR. ALEJANDRO CARAPIA RODRÍGUEZ</text><text x="10" y="34" font-size="6" fill="#333">MÉDICO GENERAL</text><text x="10" y="60" font-size="7" fill="#333" font-weight="bold">Gastroenteritis aguda</text><text x="10" y="75" font-size="6" fill="#555">1. Medicamento 1</text><text x="10" y="88" font-size="6" fill="#555">2. Medicamento 2</text></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+ 
+</div>
+ 
+<!-- MODAL for archivo -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <svg viewBox="0 0 400 300" width="100%" style="background:#eef6fb;">
+      <rect x="4" y="4" width="392" height="292" fill="#fff" stroke="#1a7fb5" stroke-width="2"/>
+      <text x="130" y="24" font-size="11" fill="#0e4c7c" font-weight="bold">DR: ALEJANDRO CARAPIA RODRÍGUEZ</text>
+      <text x="130" y="38" font-size="8" fill="#333">MÉDICO GENERAL</text>
+      <text x="130" y="50" font-size="8" fill="#333">CED. PROF. 58496</text>
+      <text x="130" y="62" font-size="8" fill="#333">TELÉFONO: 5596356</text>
+      <text x="300" y="76" font-size="7" fill="#333">FECHA: 12/12/16</text>
+      <text x="300" y="88" font-size="7" fill="#333">NOMBRE: JULIO DEL PADRO PADILLA</text>
+      <text x="300" y="100" font-size="7" fill="#333">EDAD: 28  SEXO: MASCULINO</text>
+      <line x1="20" y1="72" x2="115" y2="72" stroke="#1a7fb5" stroke-width="1"/>
+      <circle cx="45" cy="40" r="26" fill="none" stroke="#1a7fb5" stroke-width="2"/>
+      <path d="M35 40c3-8 7-8 10 0s7 8 10 0" stroke="#1a7fb5" stroke-width="2" fill="none"/>
+      <text x="170" y="130" font-size="12" fill="#222" font-weight="bold">Gastroenteritis aguda</text>
+      <text x="30" y="155" font-size="9" fill="#333">1. Medicamento 1</text>
+      <text x="40" y="168" font-size="8" fill="#555">Tomar 1 cápsula cada 24 horas por 7 días.</text>
+      <text x="30" y="188" font-size="9" fill="#333">2. Medicamento 2</text>
+      <text x="40" y="201" font-size="8" fill="#555">Tomar 1 cápsula cada 8 horas por 5 días.</text>
+      <text x="30" y="221" font-size="9" fill="#333">3. Guardar reposo total por 4 días.</text>
+      <text x="270" y="235" font-size="16" font-style="italic" fill="#0e4c7c">Acarapia</text>
+      <line x1="20" y1="250" x2="380" y2="250" stroke="#1a7fb5" stroke-width="1"/>
+      <text x="110" y="264" font-size="7" fill="#1a7fb5">CENTRO DE ESPECIALIDADES MÉDICAS</text>
+      <text x="90" y="276" font-size="6" fill="#555">AV. SIEMPRE VIVA 123 CIUDAD, PAÍS, 05450 · TELÉFONO 55-5566-9900</text>
+    </svg>
+  </div>
+</div>
+ 
+<script>
+const landingView = document.getElementById('landingView');
+  const chatView = document.getElementById('chatView');
+ 
+  document.getElementById('btnConsulta').addEventListener('click', () => {
+    landingView.classList.remove('active');
+    chatView.classList.add('active');
+  });
+  document.getElementById('btnIA').addEventListener('click', () => {
+    alert('Orientación con ayuda de IA: próximamente disponible.');
+  });
+  document.getElementById('backBtn').addEventListener('click', () => {
+    chatView.classList.remove('active');
+    landingView.classList.add('active');
+  });
+ 
+  // Attach ("+") menu
+  const plusBtn = document.getElementById('plusBtn');
+  const attachMenu = document.getElementById('attachMenu');
+  plusBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    attachMenu.classList.toggle('show');
+  });
+  document.addEventListener('click', (e) => {
+    if (!attachMenu.contains(e.target) && e.target !== plusBtn) {
+      attachMenu.classList.remove('show');
+    }
+  });
+  attachMenu.querySelectorAll('div').forEach(item => {
+    item.addEventListener('click', () => {
+      attachMenu.classList.remove('show');
+      alert('Opción seleccionada: ' + item.textContent);
+    });
+  });
+ 
+  // Chat input functional
+  const messagesBox = document.getElementById('messages');
+  const chatInput = document.getElementById('chatInput');
+  function sendMessage(){
+    const text = chatInput.value.trim();
+    if(!text) return;
+    const row = document.createElement('div');
+    row.className = 'msg-row mine';
+    row.innerHTML = '<div class="bubble patient">' + text.toUpperCase() + '</div>';
+    messagesBox.appendChild(row);
+    chatInput.value = '';
+    messagesBox.scrollTop = messagesBox.scrollHeight;
+ 
+    // simple simulated doctor reply
+    setTimeout(() => {
+      const reply = document.createElement('div');
+      reply.className = 'msg-row';
+      reply.innerHTML = '<div class="avatar-circle"><svg viewBox="0 0 24 24" width="20" height="20" fill="#fff"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></div><div class="bubble doctor">GRACIAS POR LA INFORMACIÓN, SEGUIREMOS EN CONTACTO.</div>';
+      messagesBox.appendChild(reply);
+      messagesBox.scrollTop = messagesBox.scrollHeight;
+    }, 700);
+  }
+  chatInput.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter') sendMessage();
+  });
+ 
+  // Treatment toggle via chat icon in right panel
+  const iconPhone = document.getElementById('iconPhone');
+  const iconCamera = document.getElementById('iconCamera');
+  const iconChat = document.getElementById('iconChat');
+  const treatmentBox = document.getElementById('treatmentBox');
+  const archivosSection = document.getElementById('archivosSection');
+  let expanded = false;
+ 
+  iconChat.addEventListener('click', () => {
+    expanded = !expanded;
+    if(expanded){
+      iconPhone.classList.remove('filled');
+      iconPhone.classList.add('pink');
+      iconChat.classList.add('green');
+      treatmentBox.innerHTML = `
+        <div class="treatment-text">
+          <ul>
+            <li><b>Medicamento:</b> Analgésicos como acetaminofén para aliviar dolor o fiebre.</li>
+            <li><b>Hidratación:</b> Tomar suficiente agua durante el día.</li>
+            <li><b>Descanso:</b> Dormir y reposar para que el cuerpo se recupere.</li>
+            <li><b>Alimentación:</b> Comer alimentos ligeros y nutritivos.</li>
+            <li><b>Seguimiento médico:</b> Consultar al médico si los síntomas continúan.</li>
+          </ul>
+        </div>`;
+      archivosSection.style.display = 'none';
+    } else {
+      iconPhone.classList.add('filled');
+      iconPhone.classList.remove('pink');
+      iconChat.classList.remove('green');
+      treatmentBox.innerHTML = `
+        <div class="bar-line" style="width:100%;"></div>
+        <div class="bar-line" style="width:95%;"></div>
+        <div class="bar-line" style="width:80%;"></div>`;
+      archivosSection.style.display = 'block';
+    }
+  });
+ 
+  // Archivo modal
+  const archivoThumb = document.getElementById('archivoThumb');
+  const modalOverlay = document.getElementById('modalOverlay');
+  const modalClose = document.getElementById('modalClose');
+  archivoThumb.addEventListener('click', () => modalOverlay.classList.add('show'));
+  modalClose.addEventListener('click', () => modalOverlay.classList.remove('show'));
+  modalOverlay.addEventListener('click', (e) => {
+    if(e.target === modalOverlay) modalOverlay.classList.remove('show');
+  });
+</script>
+</body>
+</html>
