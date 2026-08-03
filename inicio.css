@@ -1,0 +1,18 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("https://img.magnific.com/foto-gratis/doctor-escribiendo-sobre-chequeo-medico-rutina_23-2149281112.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+@font-face {
+    font-family: 'CameraPlainVariable';
+    src: url('https://cdn.gpteng.co/mcp-widgets/v1/fonts/CameraPlainVariable.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
