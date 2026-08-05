@@ -1,290 +1,232 @@
-/* ==========================================================================
-   MedLife — Sección hero (versión mejorada)
-   ========================================================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap');
-
-:root {
-  --blue-deep: #0b3a5c;
-  --blue-mid: #12628f;
-  --blue-primary: #1777ba;
-  --blue-bright: #2ba9df;
-  --blue-btn-start: #22a0dd;
-  --blue-btn-end: #0e6fa8;
-  --white: #ffffff;
-  --text-dark: #1c3448;
-  --font-display: 'Poppins', Arial, sans-serif;
-  --font-body: 'Inter', Arial, sans-serif;
-}
-
+/* ============================
+   RESET & BASE
+============================ */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: var(--font-body);
-  background-color: var(--white);
-  color: var(--text-dark);
+  font-family: 'Arial', 'Helvetica Neue', sans-serif;
 }
 
-.page {
-  max-width: 1094px;
-  margin: 0 auto;
+:root {
+  --color-primary: #2FA9E0;
+  --color-primary-dark: #1E88C7;
+  --color-primary-light: #4FC3F7;
+  --color-navy: #1B4E7A;
+  --color-white: #ffffff;
 }
 
-/* ---------------------------------------------------------------------
-   Encabezado / Logotipo
---------------------------------------------------------------------- */
-.site-header {
-  height: 96px;
+/* ============================
+   NAVBAR
+============================ */
+.navbar {
   display: flex;
   align-items: center;
-  padding: 0 32px;
-  background-color: var(--white);
+  height: 88px;
+  padding: 0 48px;
+  background-color: var(--color-white);
 }
 
-.logo {
+.navbar__logo {
   display: flex;
   align-items: center;
   gap: 12px;
-  text-decoration: none;
 }
 
-.logo__icon {
-  width: 52px;
-  height: 52px;
-  display: block;
-  object-fit: contain;
+.logo-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
 }
 
-.logo__text {
+.navbar__text {
   display: flex;
   flex-direction: column;
-  line-height: 1;
+  line-height: 1.05;
 }
 
-.logo__name {
-  font-family: var(--font-display);
+.navbar__brand {
   font-size: 26px;
   font-weight: 800;
-  letter-spacing: 0.3px;
-  color: var(--blue-primary);
+  color: var(--color-navy);
+  letter-spacing: 0.5px;
 }
 
-.logo__tagline {
-  margin-top: 4px;
-  font-family: var(--font-body);
+.navbar__subtitle {
   font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  color: var(--blue-bright);
-  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 1.5px;
+  margin-top: 2px;
 }
 
-/* ---------------------------------------------------------------------
-   Sección Hero — fondo elegante (degradado + textura sutil)
---------------------------------------------------------------------- */
+/* ============================
+   HERO
+============================ */
 .hero {
   position: relative;
-  min-height: 460px;
-  margin: 0 32px 40px;
-  border-radius: 18px;
-  overflow: hidden;
+  min-height: 620px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  background:
-    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 40%),
-    linear-gradient(125deg, var(--blue-deep) 0%, var(--blue-mid) 55%, var(--blue-primary) 100%);
+  background-image: url('https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?q=80&w=1600&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
 }
 
-/* Textura sutil de puntos, para dar profundidad sin usar fotografías */
-.hero::before {
-  content: "";
+.hero__overlay {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px);
-  background-size: 22px 22px;
-  opacity: 0.5;
-  pointer-events: none;
+  background: rgba(20, 25, 30, 0.55);
 }
 
-/* Resplandores decorativos difuminados */
-.hero::after {
-  content: "";
-  position: absolute;
-  width: 420px;
-  height: 420px;
-  right: -140px;
-  bottom: -160px;
-  background: radial-gradient(circle, rgba(43, 169, 223, 0.35) 0%, rgba(43, 169, 223, 0) 70%);
-  pointer-events: none;
-}
-
-/* ---------------------------------------------------------------------
-   Insignia (logo real proporcionado, con resplandor)
---------------------------------------------------------------------- */
-.hero__badge {
-  position: relative;
-  z-index: 2;
-  width: 116px;
-  height: 116px;
-  margin: 0 auto 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero__badge::before {
-  content: "";
-  position: absolute;
-  inset: -14px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 72%);
-}
-
-.hero__badge img {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 8px 18px rgba(4, 24, 40, 0.45));
-}
-
-/* ---------------------------------------------------------------------
-   Contenido de texto
---------------------------------------------------------------------- */
 .hero__content {
   position: relative;
   z-index: 2;
-  width: 100%;
-  max-width: 780px;
-  padding: 56px 32px 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  padding: 0 24px;
+  max-width: 760px;
 }
 
-.hero__title {
-  font-family: var(--font-display);
-  color: var(--white);
-  font-size: 38px;
-  font-weight: 800;
-  line-height: 1.28;
-  letter-spacing: -0.3px;
-}
-
-.hero__subtitle {
-  margin-top: 18px;
-  font-family: var(--font-body);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.82);
-  max-width: 560px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* ---------------------------------------------------------------------
-   Botones de llamada a la acción — versión moderna y compacta
---------------------------------------------------------------------- */
-.hero__actions {
+/* Icon */
+.hero__icon {
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary-dark));
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 10px 30px rgba(30, 136, 199, 0.45);
+  margin-bottom: 32px;
+}
+
+.hero__icon svg {
+  width: 52px;
+  height: 52px;
+}
+
+/* Title */
+.hero__title {
+  color: var(--color-white);
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 40px;
+}
+
+/* Buttons */
+.hero__buttons {
+  display: flex;
+  gap: 20px;
   flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 34px;
+  justify-content: center;
 }
 
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 46px;
-  padding: 0 28px;
-  border-radius: 10px;
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  width: 320px;
+  height: 60px;
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.btn--primary {
-  background: linear-gradient(135deg, var(--blue-btn-start) 0%, var(--blue-btn-end) 100%);
-  color: var(--white);
-  border: 1px solid transparent;
-  box-shadow: 0 10px 22px rgba(6, 45, 71, 0.4);
-}
-
-.btn--primary:hover,
-.btn--primary:focus-visible {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 26px rgba(6, 45, 71, 0.5);
-}
-
+.btn--primary,
 .btn--secondary {
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--white);
-  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  background: linear-gradient(90deg, var(--color-primary-light), var(--color-primary-dark));
+  color: var(--color-white);
+  box-shadow: 0 8px 20px rgba(30, 136, 199, 0.4);
 }
 
-.btn--secondary:hover,
-.btn--secondary:focus-visible {
-  background: rgba(255, 255, 255, 0.16);
-  border-color: var(--white);
+.btn:hover {
   transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(30, 136, 199, 0.5);
 }
 
-.btn:focus-visible {
-  outline: 2px solid var(--white);
-  outline-offset: 3px;
+/* Scroll indicator */
+.hero__scroll-indicator {
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.08);
+  z-index: 2;
 }
 
-/* ---------------------------------------------------------------------
-   Responsive
---------------------------------------------------------------------- */
-@media (max-width: 640px) {
-  .site-header {
-    height: auto;
-    padding: 20px 20px;
+/* ============================
+   RESPONSIVE
+============================ */
+@media (max-width: 992px) {
+  .hero__title {
+    font-size: 34px;
   }
 
-  .logo__icon {
+  .btn {
+    width: 280px;
+    height: 56px;
+    font-size: 14px;
+  }
+
+  .hero {
+    min-height: 560px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 24px;
+    height: 72px;
+  }
+
+  .navbar__brand {
+    font-size: 20px;
+  }
+
+  .navbar__subtitle {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .logo-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .hero__title {
+    font-size: 26px;
+    margin-bottom: 28px;
+  }
+
+  .hero__icon {
+    width: 88px;
+    height: 88px;
+    margin-bottom: 24px;
+  }
+
+  .hero__icon svg {
     width: 42px;
     height: 42px;
   }
 
-  .logo__name {
-    font-size: 21px;
-  }
-
-  .hero {
-    margin: 0 16px 28px;
-    min-height: auto;
-  }
-
-  .hero__content {
-    padding: 44px 22px 48px;
-  }
-
-  .hero__title {
-    font-size: 27px;
-  }
-
-  .hero__subtitle {
-    font-size: 14px;
-  }
-
-  .hero__actions {
+  .hero__buttons {
     flex-direction: column;
-    width: 100%;
+    align-items: center;
+    gap: 14px;
   }
 
   .btn {
