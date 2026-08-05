@@ -28,7 +28,11 @@ function goBack() {
         section.classList.remove('active');
     });
 
-    document.getElementById('home-view').classList.add('active');
+    var home = document.getElementById('home-view');
+    if (home) {
+        home.classList.add('active');
+    }
+
     updateNavActive('inicio');
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
