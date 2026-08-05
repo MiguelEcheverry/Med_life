@@ -20,6 +20,10 @@
     font-family: var(--font-sans);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--white);
     color: var(--text-gray);
@@ -66,7 +70,7 @@ header {
     font-size: 1.5rem;
     font-weight: 800;
     letter-spacing: 0.5px;
-    color: var(#333);
+    color: #333;
 }
 
 .logo-text span {
@@ -133,6 +137,16 @@ main {
 
 .view-section.active {
     display: block;
+    animation: fadeIn 0.35s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .view-section.active { animation: none; }
 }
 
 /* =========================================================
@@ -252,6 +266,11 @@ main {
     z-index: 1200;
     cursor: pointer;
     border: 2px solid rgba(255, 255, 255, 0.7);
+    transition: transform 0.2s ease;
+}
+
+.ai-badge:hover {
+    transform: scale(1.08);
 }
 
 .ai-badge i {
@@ -302,6 +321,7 @@ main {
     border-radius: 15px;
     overflow: hidden;
     height: 190px;
+    background-color: #e6ecf1;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -333,7 +353,8 @@ main {
     letter-spacing: 1px;
 }
 
-.specialty-card:hover .overlay {
+.specialty-card:hover .overlay,
+.specialty-card:focus-within .overlay {
     opacity: 1;
 }
 
@@ -395,6 +416,7 @@ main {
     border-radius: 20px;
     overflow: hidden;
     margin: 0 auto 25px;
+    background-color: #e6ecf1;
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
 }
 
@@ -402,6 +424,7 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 .detail-info-card {
