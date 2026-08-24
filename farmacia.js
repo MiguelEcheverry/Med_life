@@ -25,9 +25,14 @@ const cartCountEl = document.getElementById('cart-count');
 
 const allCards = Array.from(productGrid.querySelectorAll('.product-card'));
 
-// ===== Autocompletado =====
+// ===== Autocompletado + filtrado en vivo con cada letra =====
 searchInput.addEventListener('input', () => {
   const q = searchInput.value.trim().toLowerCase();
+
+  // Filtra las tarjetas mostradas en vivo, letra por letra
+  runSearch(searchInput.value);
+
+  // Actualiza la lista de sugerencias (se mantiene igual que antes)
   suggestionsBox.innerHTML = '';
 
   if (q.length === 0) {
@@ -126,7 +131,7 @@ function resetToRecommended() {
   if (noResultsEl) noResultsEl.remove();
 }
 
-// ===== Carrito con cantidades (localStorage, lo leerá carrito.html más adelante) =====
+// ===== Carrito con cantidades (localStorage, lo lee carrito.html) =====
 function getCart() {
   try {
     return JSON.parse(localStorage.getItem('medlife_cart')) || [];
@@ -147,21 +152,54 @@ function getQtyFor(name) {
   return item ? item.qty : 0;
 }
 
+// Guarda TODOS los datos visuales de la tarjeta, para que Carrito
+// pueda mostrar la tarjeta idéntica a como se ve aquí en Farmacia.
+function updateQtyLabel(card, name) {
+  const qty = getQtyFor(name);
+  const label = card.querySelector('.qty-label');
+  if (!label) return;
+  if (qty > 0) {
+    label.textContent = 'x' + qty;
+    label.classList.remove('hidden');
+  } else {
+    label.classList.add('hidden');
+  }
+}
+
 function addToCart(card) {
   const name = card.querySelector('.product-name')?.textContent.trim();
   const priceText = card.querySelector('.price')?.textContent.trim();
-  const brand = card.querySelector('.brand')?.textContent.trim() || 'Genérico';
   if (!name || !priceText) return;
 
   const cart = getCart();
   const existing = cart.find(i => i.name === name);
+
   if (existing) {
     existing.qty += 1;
   } else {
-    cart.push({ name, price: priceText, brand, qty: 1 });
+    const brand = card.querySelector('.brand')?.textContent.trim() || 'Genérico';
+    const priceOld = card.querySelector('.price-old')?.textContent.trim() || '';
+    const badge = card.querySelector('.badge')?.textContent.trim() || '';
+    const iconSVG = card.querySelector('.product-icon')?.outerHTML || '';
+    const metaSpans = card.querySelectorAll('.meta-row span');
+    const mlText = metaSpans[0] ? metaSpans[0].textContent.trim() : '';
+    const deliveryText = metaSpans[1] ? metaSpans[1].textContent.trim() : '';
+    const ratingText = card.querySelector('.rating')?.textContent.trim() || '';
+
+    const bannerClone = card.querySelector('.promo-banner')?.cloneNode(true);
+    if (bannerClone) bannerClone.querySelector('.wish-btn')?.remove();
+    const promoText = bannerClone ? bannerClone.textContent.trim() : '';
+
+    cart.push({
+      name, price: priceText, priceOld, brand, badge,
+      promoText, mlText, deliveryText, ratingText, iconSVG,
+      qty: 1
+    });
   }
+
   saveCart(cart);
-  card.querySelector('.remove-btn').classList.remove('hidden');
+  card.querySelector('.remove-btn')?.classList.remove('hidden');
+  updateQtyLabel(card, name);
 }
 
 function removeFromCart(card) {
@@ -175,9 +213,10 @@ function removeFromCart(card) {
   existing.qty -= 1;
   if (existing.qty <= 0) {
     cart = cart.filter(i => i.name !== name);
-    card.querySelector('.remove-btn').classList.add('hidden');
+    card.querySelector('.remove-btn')?.classList.add('hidden');
   }
   saveCart(cart);
+  updateQtyLabel(card, name);
 }
 
 productGrid.querySelectorAll('.add-btn').forEach(btn => {
@@ -203,6 +242,7 @@ cartCountEl.textContent = initialCart.reduce((sum, item) => sum + item.qty, 0);
 allCards.forEach(card => {
   const name = card.querySelector('.product-name')?.textContent.trim();
   if (getQtyFor(name) > 0) {
-    card.querySelector('.remove-btn').classList.remove('hidden');
+    card.querySelector('.remove-btn')?.classList.remove('hidden');
   }
+  updateQtyLabel(card, name);
 });

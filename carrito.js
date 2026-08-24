@@ -8,14 +8,6 @@ const confirmarBtn = document.getElementById('confirmar-btn');
 const searchInput = document.getElementById('search-input');
 const searchBtn = document.getElementById('search-btn');
 
-// Ícono genérico único para todas las tarjetas del carrito (simplificación,
-// el carrito no guarda qué ícono tenía cada producto en Farmacia)
-const GENERIC_ICON = `<svg viewBox="0 0 80 100" class="product-icon">
-  <rect x="30" y="5" width="20" height="10" rx="2" fill="#1C86C4"/>
-  <rect x="20" y="18" width="40" height="75" rx="8" fill="#EAF6FA" stroke="#7FCBE0" stroke-width="3"/>
-  <rect x="25" y="40" width="30" height="20" fill="#B9DDE8"/>
-</svg>`;
-
 function getCart() {
   try {
     return JSON.parse(localStorage.getItem('medlife_cart')) || [];
@@ -36,6 +28,8 @@ function formatPrice(n) {
   return '$' + n.toLocaleString('es-CO');
 }
 
+// Reconstruye la tarjeta EXACTAMENTE igual a como se ve en Farmacia,
+// usando todos los datos que farmacia.js guardó al añadir el producto.
 function renderCart() {
   const cart = getCart();
   cartGrid.innerHTML = '';
@@ -54,17 +48,48 @@ function renderCart() {
   cart.forEach(item => {
     const card = document.createElement('article');
     card.className = 'product-card';
+    card.dataset.name = item.name;
     card.innerHTML = `
       <div class="card-image">
-        <span class="qty-badge">x${item.qty}</span>
-        ${GENERIC_ICON}
+        ${item.badge ? `<span class="badge">${item.badge}</span>` : ''}
+        <button class="remove-btn">−</button>
+        <button class="add-btn">+</button>
+        <span class="qty-label">x${item.qty}</span>
+        ${item.iconSVG || ''}
       </div>
+      ${item.promoText ? `<div class="promo-banner">${item.promoText}</div>` : ''}
       <span class="brand">${item.brand || 'Genérico'}</span>
       <h3 class="product-name">${item.name}</h3>
-      <div class="price-row"><span class="price">${item.price}</span></div>
+      <div class="price-row">
+        <span class="price">${item.price}</span>
+        ${item.priceOld ? `<span class="price-old">${item.priceOld}</span>` : ''}
+      </div>
+      <div class="meta-row"><span>${item.mlText || ''}</span><span class="delivery">${item.deliveryText || ''}</span></div>
+      ${item.ratingText ? `<div class="rating">${item.ratingText}</div>` : ''}
     `;
+
+    card.querySelector('.add-btn').addEventListener('click', () => {
+      changeQty(item.name, 1);
+    });
+    card.querySelector('.remove-btn').addEventListener('click', () => {
+      changeQty(item.name, -1);
+    });
+
     cartGrid.appendChild(card);
   });
+}
+
+function changeQty(name, delta) {
+  let cart = getCart();
+  const item = cart.find(i => i.name === name);
+  if (!item) return;
+
+  item.qty += delta;
+  if (item.qty <= 0) {
+    cart = cart.filter(i => i.name !== name);
+  }
+  saveCart(cart);
+  renderCart();
 }
 
 function openModal() {
@@ -98,23 +123,45 @@ function closeModal() {
 
 comprarBtn.addEventListener('click', openModal);
 
-// Clic afuera del modal (en el overlay) lo cierra
 modalOverlay.addEventListener('click', (e) => {
   if (e.target === modalOverlay) closeModal();
 });
 
-// Confirmar compra -> va a pagos.html (los datos siguen en localStorage)
 confirmarBtn.addEventListener('click', () => {
   window.location.href = 'pagos.html';
 });
 
-// Buscador (redirige a Farmacia, ahí sí filtra)
-function goSearch() {
-  window.location.href = 'farmacia.html';
+function filterCart(query) {
+  const q = query.trim().toLowerCase();
+  const cards = cartGrid.querySelectorAll('.product-card');
+  let visibleCount = 0;
+
+  cards.forEach(card => {
+    const name = (card.querySelector('.product-name')?.textContent || '').toLowerCase();
+    const brand = (card.querySelector('.brand')?.textContent || '').toLowerCase();
+    const match = q.length === 0 || name.includes(q) || brand.includes(q);
+    card.style.display = match ? '' : 'none';
+    if (match) visibleCount++;
+  });
+
+  let noMatchEl = document.getElementById('no-match-cart');
+  if (visibleCount === 0 && cards.length > 0) {
+    if (!noMatchEl) {
+      noMatchEl = document.createElement('p');
+      noMatchEl.id = 'no-match-cart';
+      noMatchEl.className = 'empty-cart-msg';
+      noMatchEl.textContent = 'Ningún producto de tu carrito coincide con la búsqueda.';
+      cartGrid.after(noMatchEl);
+    }
+  } else if (noMatchEl) {
+    noMatchEl.remove();
+  }
 }
-searchBtn.addEventListener('click', goSearch);
+
+searchInput.addEventListener('input', () => filterCart(searchInput.value));
+searchBtn.addEventListener('click', () => filterCart(searchInput.value));
 searchInput.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') goSearch();
+  if (e.key === 'Enter') filterCart(searchInput.value);
 });
 
 renderCart();

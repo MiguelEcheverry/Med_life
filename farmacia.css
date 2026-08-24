@@ -229,6 +229,20 @@ body {
 .remove-btn.hidden { display: none; }
 .remove-btn:active { transform: scale(0.9); }
 
+.qty-label {
+  position: absolute;
+  top: 42px;
+  right: 10px;
+  background: #ffffff;
+  color: var(--blue-primary);
+  font-weight: 800;
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+.qty-label.hidden { display: none; }
+
 .product-icon { width: 70px; height: 90px; }
 
 .promo-banner {
