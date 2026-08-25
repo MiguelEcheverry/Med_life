@@ -1,6 +1,6 @@
 /* =========================================================
    MEDLIFE VIRTUAL HEALTHCARE
-   Variables de marca (fusión de ambos prototipos)
+   Estilos: Página principal de Especialidades (solo grid)
    ========================================================= */
 :root {
     --primary-blue: #2b95cc;
@@ -54,6 +54,7 @@ header {
     gap: 12px;
     color: var(--primary-blue);
     cursor: pointer;
+    text-decoration: none;
 }
 
 .logo-icon {
@@ -122,168 +123,19 @@ header {
     font-size: 1.2rem;
 }
 
-/* =========================================================
-   CONTROL DE VISTAS (SPA)
-   ========================================================= */
 main {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-.view-section {
-    display: none;
-}
-
-.view-section.active {
-    display: block;
-    animation: fadeIn 0.35s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .view-section.active { animation: none; }
-}
-
 /* =========================================================
-   HERO (fiel al prototipo principal)
-   ========================================================= */
-.hero {
-    position: relative;
-    min-height: 82vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-        url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: var(--white);
-    padding: 40px 20px;
-}
-
-.hero-icon {
-    background: var(--primary-blue);
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 22px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-}
-
-.hero-icon i {
-    font-size: 1.9rem;
-    color: var(--white);
-}
-
-.hero h2 {
-    font-family: var(--font-serif);
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
-    max-width: 950px;
-    line-height: 1.25;
-}
-
-.hero p {
-    font-size: 1rem;
-    font-weight: 600;
-    max-width: 720px;
-    margin-bottom: 35px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    line-height: 1.6;
-}
-
-.scroll-indicator {
-    position: absolute;
-    left: 28px;
-    bottom: 22px;
-    color: var(--white);
-    font-size: 1.3rem;
-    opacity: 0.85;
-    cursor: pointer;
-    animation: bounce 2.2s infinite;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(6px); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .scroll-indicator { animation: none; }
-}
-
-/* Botón genérico de llamada a la acción */
-.btn {
-    background-color: var(--primary-blue);
-    color: var(--white);
-    border: none;
-    padding: 16px 44px;
-    font-size: 1rem;
-    font-weight: 700;
-    border-radius: 40px;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    font-family: var(--font-sans);
-}
-
-.btn:hover {
-    background-color: var(--dark-blue);
-    transform: translateY(-2px);
-}
-
-/* Insignia flotante de asistente (esquina inferior derecha, presente en todo el sitio) */
-.ai-badge {
-    position: fixed;
-    right: 22px;
-    bottom: 22px;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: var(--primary-blue);
-    color: var(--white);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-    z-index: 1200;
-    cursor: pointer;
-    border: 2px solid rgba(255, 255, 255, 0.7);
-    transition: transform 0.2s ease;
-}
-
-.ai-badge:hover {
-    transform: scale(1.08);
-}
-
-.ai-badge i {
-    font-size: 0.95rem;
-    margin-bottom: 1px;
-}
-
-/* =========================================================
-   VISTA PRINCIPAL — GRID DE ESPECIALIDADES
+   SECCIÓN DE ESPECIALIDADES (grid — único contenido de esta página)
    ========================================================= */
 .specialties-section {
     padding: 60px 4% 80px;
     background-color: var(--light-bg);
+    flex-grow: 1;
 }
 
 .section-title {
@@ -364,114 +216,6 @@ main {
 }
 
 /* =========================================================
-   VISTAS DE DETALLE POR ESPECIALIDAD
-   ========================================================= */
-.detail-view {
-    max-width: 1000px;
-    margin: 0 auto;
-    text-align: center;
-    position: relative;
-    padding: 70px 4% 60px;
-}
-
-.btn-back {
-    position: absolute;
-    top: 22px;
-    left: 4%;
-    background-color: transparent;
-    color: var(--primary-blue);
-    border: 2px solid var(--primary-blue);
-    padding: 9px 18px;
-    border-radius: 20px;
-    font-weight: 700;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-sans);
-}
-
-.btn-back:hover {
-    background-color: var(--primary-blue);
-    color: white;
-}
-
-.detail-title {
-    color: var(--dark-blue);
-    font-size: 2.1rem;
-    font-weight: 800;
-    margin: 10px 0 25px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.detail-banner {
-    width: 100%;
-    max-width: 900px;
-    height: 300px;
-    border-radius: 20px;
-    overflow: hidden;
-    margin: 0 auto 25px;
-    background-color: #e6ecf1;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
-}
-
-.detail-banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.detail-info-card {
-    background-color: var(--white);
-    padding: 45px 50px;
-    border-radius: 20px;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
-    max-width: 900px;
-    margin: 0 auto;
-    border: 1px solid #eaeaea;
-}
-
-.detail-info-card p {
-    color: var(--info-gray);
-    font-size: 0.95rem;
-    line-height: 1.7;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.btn-container {
-    margin-top: 30px;
-}
-
-.btn-consulta {
-    background-color: var(--primary-blue);
-    color: white;
-    border: none;
-    padding: 15px 40px;
-    border-radius: 30px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(43, 149, 204, 0.4);
-    transition: transform 0.2s ease, background-color 0.2s ease;
-    font-family: var(--font-sans);
-}
-
-.btn-consulta:hover {
-    transform: scale(1.05);
-    background-color: var(--dark-blue);
-}
-
-/* =========================================================
    FOOTER (visible en todas las vistas)
    ========================================================= */
 footer {
@@ -505,11 +249,43 @@ footer {
     letter-spacing: 0.5px;
 }
 
+/* Insignia flotante de asistente */
+.ai-badge {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--primary-blue);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    z-index: 1200;
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    transition: transform 0.2s ease;
+}
+
+.ai-badge:hover {
+    transform: scale(1.08);
+}
+
+.ai-badge i {
+    font-size: 0.95rem;
+    margin-bottom: 1px;
+}
+
 /* =========================================================
    RESPONSIVE
    ========================================================= */
 @media (max-width: 992px) {
-    .hero h2 { font-size: 2.4rem; }
     .specialties-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -524,14 +300,6 @@ footer {
         justify-content: center;
         gap: 14px 18px;
     }
-    .hero h2 { font-size: 1.9rem; }
-    .hero p { font-size: 0.85rem; }
-    .detail-view { padding-top: 130px; }
-    .btn-back {
-        position: static;
-        margin-bottom: 20px;
-    }
-    .detail-info-card { padding: 30px 20px; }
     footer { gap: 24px; }
 }
 

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pediatria | Medlife - Virtual Healthcare</title>
+    <link rel="stylesheet" href="pediatria.css">
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Iconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Página independiente de especialidad: sin header ni logo -->
+    <main>
+        <section class="detail-view">
+            <button class="btn-back" onclick="volverAEspecialidades()">
+                <i class="fa-solid fa-arrow-left"></i> Volver a Especialidades
+            </button>
+
+            <h2 class="detail-title">PEDIATRIA</h2>
+
+            <div class="detail-banner">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOzZBZJVn2wKa2I3pOalr27xHhLaUpycR16fXEQsUoiQ&s=10" alt="Pediatría" loading="lazy">
+            </div>
+
+            <div class="detail-info-card">
+                <p>Brindamos atención médica especializada para niños y adolescentes, acompañando su crecimiento y desarrollo con controles preventivos, diagnóstico oportuno y tratamiento adecuado en cada etapa.</p>
+            </div>
+
+            <div class="btn-container">
+                <button class="btn-consulta" onclick="iniciarConsulta('Pediatría')">Realiza tu consulta</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer de Contacto -->
+    <footer>
+        <div class="footer-item"><i class="fa-solid fa-heart-circle-check"></i></div>
+        <div class="footer-item">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:+573227048889">+57 322 7048889</a>
+        </div>
+        <div class="footer-item">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:info@medilifegroup.com">INFO@MEDILIFEGROUP.COM</a>
+        </div>
+    </footer>
+
+    <!-- Insignia flotante de asistente -->
+    <div class="ai-badge" id="ai-badge" title="Asistente virtual"><i class="fa-solid fa-wand-magic-sparkles"></i>IA+</div>
+
+    <script src="detalle.js"></script>
+</body>
+</html>
