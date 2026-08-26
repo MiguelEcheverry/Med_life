@@ -140,6 +140,10 @@ body {
   letter-spacing: 0.5px;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
 
 .btn--primary,
