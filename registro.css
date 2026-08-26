@@ -70,7 +70,8 @@ body {
   justify-content: center;
 }
 
-.register-navbar__logo-badge svg {
+.register-navbar__logo-badge svg,
+.register-navbar__logo-badge img {
   width: 34px;
   height: 34px;
 }

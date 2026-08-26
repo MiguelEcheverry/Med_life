@@ -1,63 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MEDLIFE Virtual Healthcare</title>
-  <link rel="stylesheet" href="inicio_de_sesion.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedLife - Virtual Healthcare</title>
+    <link rel="stylesheet" href="inicio_de_sesion.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <div class="navbar__logo">
-      <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs>
-          <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#4FC3F7"/>
-            <stop offset="100%" stop-color="#1E88C7"/>
-          </linearGradient>
-        </defs>
-        <path d="M50,90 C22,66 6,46 6,29 C6,15 17,5 31,5 C41,5 47,11 50,19 C53,11 59,5 69,5 C83,5 94,15 94,29 C94,46 78,66 50,90 Z"
-              fill="none" stroke="url(#logoGradient)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M36,30 L36,50 C36,58 42,64 50,64 C58,64 63,58 63,51 C63,47 60,44 56,44 C52,44 50,47 50,50"
-              fill="none" stroke="url(#logoGradient)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M43,30 L43,42" fill="none" stroke="url(#logoGradient)" stroke-width="5.5" stroke-linecap="round"/>
-        <circle cx="67" cy="55" r="4.5" fill="none" stroke="url(#logoGradient)" stroke-width="5"/>
-      </svg>
-      <div class="navbar__text">
-        <span class="navbar__brand">MEDLIFE</span>
-        <span class="navbar__subtitle">VIRTUAL HEALTHCARE</span>
-      </div>
-    </div>
-  </header>
+    <!-- Encabezado / Navbar -->
+    <header class="navbar">
+        <div class="logo-container">
+            <!-- PÓN EL LINK DEL LOGO DEL NAVBAR AQUÍ -->
+            <img src="assets/img/inicio de sesion/logo.png" alt="MedLife Logo" class="nav-logo-img">
+            
+            <div class="brand-text">
+                <span class="brand-name">MEDLIFE</span>
+                <span class="brand-sub">VIRTUAL HEALTHCARE</span>
+            </div>
+        </div>
+    </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero__overlay"></div>
+    <!-- Sección Hero / Banner Principal -->
+    <main class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            
+            <!-- Círculo Azul Central con el Logo en el medio -->
+            <div class="center-badge">
+                <!-- PÓN EL LINK DEL LOGO CENTRAL AQUÍ -->
+                <img src="assets/img/inicio de sesion/blanco.png" alt="MedLife Icono" class="center-logo-img">
+            </div>
 
-    <div class="hero__content">
-      <div class="hero__icon">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M50,90 C22,66 6,46 6,29 C6,15 17,5 31,5 C41,5 47,11 50,19 C53,11 59,5 69,5 C83,5 94,15 94,29 C94,46 78,66 50,90 Z"
-                fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M36,30 L36,50 C36,58 42,64 50,64 C58,64 63,58 63,51 C63,47 60,44 56,44 C52,44 50,47 50,50"
-                fill="none" stroke="#ffffff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M43,30 L43,42" fill="none" stroke="#ffffff" stroke-width="5.5" stroke-linecap="round"/>
-          <circle cx="67" cy="55" r="4.5" fill="none" stroke="#ffffff" stroke-width="5"/>
-        </svg>
-      </div>
+            <!-- Título Principal -->
+            <h1 class="hero-title">Atención médica inmediata,<br>sin salir de casa.</h1>
 
-      <h1 class="hero__title">Atención médica inmediata, sin salir de casa.</h1>
+            <!-- Botones Funcionales (Reemplaza los href con tus rutas reales) -->
+            <div class="cta-container">
+                <a href="registro.html" class="btn btn-primary">¡REGÍSTRATE CON NOSOTROS!</a>
+                <a href="iniciar_sesion.html" class="btn btn-secondary">INICIA SESIÓN</a>
+            </div>
 
-      <div class="hero__buttons">
-        <a href="registro.html" class="btn btn--primary">¡REGÍSTRATE CON NOSOTROS!</a>
-        <a href="iniciar_sesion.html" class="btn btn--secondary">INICIA SESIÓN</a>
-      </div>
-    </div>
-
-    <div class="hero__scroll-indicator" aria-hidden="true"></div>
-  </section>
+        </div>
+    </main>
 
 </body>
 </html>

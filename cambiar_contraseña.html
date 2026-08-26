@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MEDLIFE - Nueva Contraseña</title>
+  <title>MEDLIFE - Cambiar Contraseña</title>
   <link rel="stylesheet" href="cambiar_contraseña.css">
 </head>
 <body>
 
-  <div class="pw-page">
+  <div class="cp-page">
 
     <!-- TOP PHOTO SECTION -->
-    <div class="pw-page__photo">
-      <div class="pw-page__overlay"></div>
+    <div class="cp-page__photo">
+      <div class="cp-page__overlay"></div>
 
-      <div class="pw-navbar">
-        <div class="pw-navbar__logo-badge">
+      <div class="cp-navbar">
+        <div class="cp-navbar__logo-badge">
           <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M50,90 C22,66 6,46 6,29 C6,15 17,5 31,5 C41,5 47,11 50,19 C53,11 59,5 69,5 C83,5 94,15 94,29 C94,46 78,66 50,90 Z"
                   fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -25,94 +25,50 @@
             <circle cx="67" cy="55" r="5" fill="none" stroke="#ffffff" stroke-width="5.5"/>
           </svg>
         </div>
-        <div class="pw-navbar__text">
-          <span class="pw-navbar__brand">MEDLIFE</span>
-          <span class="pw-navbar__subtitle">VIRTUAL HEALTHCARE</span>
+        <div class="cp-navbar__text">
+          <span class="cp-navbar__brand">MEDLIFE</span>
+          <span class="cp-navbar__subtitle">VIRTUAL HEALTHCARE</span>
         </div>
       </div>
 
-      <button type="button" class="back-btn" aria-label="Volver">
+      <a href="iniciar_sesion.html" class="back-btn" aria-label="Volver">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M15 5 L8 12 L15 19" fill="none" stroke="#ffffff" stroke-width="2.4"
                 stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-      </button>
+      </a>
     </div>
 
     <!-- BLUE GRADIENT LOWER SECTION -->
-    <div class="pw-page__background">
+    <div class="cp-page__background">
       <div class="scroll-indicator" aria-hidden="true"></div>
     </div>
 
-    <!-- NEW PASSWORD CARD -->
-    <div class="pw-card">
-      <div class="pw-card__icon">
+    <!-- CHANGE PASSWORD CARD -->
+    <div class="cp-card">
+      <div class="cp-card__icon">
         <svg class="lock-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <rect x="5" y="10" width="14" height="10" rx="2.2" fill="none" stroke="#ffffff" stroke-width="1.8"/>
           <path d="M8 10 V7 a4 4 0 0 1 8 0 V10" fill="none" stroke="#ffffff" stroke-width="1.8"
                 stroke-linecap="round"/>
         </svg>
-        <div class="pw-card__dots">****</div>
+        <div class="cp-card__dots">****</div>
       </div>
 
-      <h1 class="pw-card__title">NUEVA CONTRASEÑA</h1>
+      <h1 class="cp-card__title">CAMBIAR CONTRASEÑA</h1>
 
-      <form class="pw-form" novalidate>
-        <label class="pw-form__label" for="password">CONTRASEÑA</label>
-        <input class="pw-form__input" type="password" id="password" name="password" autocomplete="new-password" required minlength="8">
+      <form class="cp-form" action="nueva_contraseña.html" method="get">
+        <label class="cp-form__label" for="email">CORREO ELECTRONICO</label>
+        <input class="cp-form__input" type="email" id="email" name="email" autocomplete="email" required>
 
-        <label class="pw-form__label" for="password-confirm">VERIFICAR CONTRASEÑA</label>
-        <input class="pw-form__input" type="password" id="password-confirm" name="password-confirm" autocomplete="new-password" required>
+        <label class="cp-form__label" for="code">CÓDIGO DE VERIFICACIÓN</label>
+        <input class="cp-form__input" type="text" id="code" name="code" inputmode="numeric" autocomplete="one-time-code" required>
 
-       <div class="pw-form__actions">
-  <a href="iniciar_sesion.html" class="pw-form__submit">ACCEDER</a>
-</div>
-
-        <p class="pw-form__message" id="formMessage" role="status"></p>
+        <button type="submit" class="cp-form__submit">CAMBIAR</button>
       </form>
     </div>
 
   </div>
-
-  <script>
-    const form = document.querySelector('.pw-form');
-    const message = document.getElementById('formMessage');
-    const backBtn = document.querySelector('.back-btn');
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const password = document.getElementById('password');
-      const confirm = document.getElementById('password-confirm');
-
-      if (!password.value || password.value.length < 8) {
-        message.textContent = 'La contraseña debe tener al menos 8 caracteres.';
-        message.classList.add('is-error');
-        password.focus();
-        return;
-      }
-
-      if (password.value !== confirm.value) {
-        message.textContent = 'Las contraseñas no coinciden.';
-        message.classList.add('is-error');
-        confirm.focus();
-        return;
-      }
-
-      message.classList.remove('is-error');
-      message.textContent = 'Actualizando contraseña...';
-
-      // Placeholder for real password-update logic.
-      setTimeout(() => {
-        message.textContent = 'Contraseña actualizada correctamente.';
-        window.location.href = 'login.html';
-      }, 900);
-    });
-
-    backBtn.addEventListener('click', function () {
-      window.location.href = 'change-password.html';
-    });
-  </script>
 
 </body>
 </html>
