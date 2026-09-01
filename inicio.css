@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     margin: 0;
     padding: 0;
@@ -15,4 +16,234 @@ body {
     font-weight: 100 900;
     font-style: normal;
     font-display: swap;
+=======
+/* ===== Variables del sistema de diseño Medlife ===== */
+:root {
+  --blue-primary: #1C86C4;
+  --blue-light: #4FB8D6;
+  --blue-btn-top: #3FB6E6;
+  --blue-btn-bottom: #1C86C4;
+  --gray-bar: #A6A6A6;
+  --gray-text: #58595B;
+  --gray-nav: #414042;
+  --bg-hero: #EEF3F6;
+}
+
+/* ===== Reset básico ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ===== Header / Nav ===== */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 60px;
+  background: #ffffff;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  width: 44px;
+  height: auto;
+  display: block;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo-title {
+  font-weight: 800;
+  font-size: 26px;
+  color: var(--blue-primary);
+  letter-spacing: 0.5px;
+}
+
+.logo-subtitle {
+  font-weight: 600;
+  font-size: 11px;
+  color: var(--blue-light);
+  letter-spacing: 2px;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--gray-nav);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.main-nav a.active,
+.main-nav a:hover {
+  color: var(--blue-primary);
+}
+
+/* ===== Barra gris ===== */
+.gray-bar {
+  width: 100%;
+  height: 36px;
+  background: var(--gray-bar);
+}
+
+/* ===== Sección Inicio (hero) =====
+   flex: 1 hace que ocupe exactamente el espacio restante de la pantalla
+   (alto total menos header y barra gris), sin dejar huecos ni sobrar */
+.inicio-hero {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 60px;
+  background: linear-gradient(135deg, #0F2A3D 0%, #14456B 45%, var(--blue-primary) 100%);
+  overflow: hidden;
+}
+
+.inicio-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 20%, rgba(95, 195, 232, 0.35) 0%, rgba(95, 195, 232, 0) 45%);
+  pointer-events: none;
+}
+
+/* ===== Círculo del logo (badge) ===== */
+.hero-badge {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5FC3E8 0%, #1C86C4 100%);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+/* Versión blanca del logo real (fondo transparente), para que resalte sobre el círculo azul */
+.badge-logo {
+  width: 62%;
+  height: auto;
+  display: block;
+}
+
+/* ===== Contenido del hero ===== */
+.hero-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+}
+
+.hero-content h1 {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: clamp(28px, 4.5vw, 48px);
+  line-height: 1.15;
+  margin-bottom: 22px;
+}
+
+.hero-content p {
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: 0.5px;
+  max-width: 760px;
+  margin-bottom: 32px;
+}
+
+.btn-pill {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+  padding: 14px 34px;
+  border-radius: 50px;
+  background: linear-gradient(180deg, var(--blue-btn-top), var(--blue-btn-bottom));
+  box-shadow: 0 4px 10px rgba(28, 134, 196, 0.35);
+}
+
+.btn-consulta {
+  padding: 17px 46px;
+  font-size: 15px;
+}
+
+/* ===== Botón flotante IA ===== */
+.ia-float-btn {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  z-index: 999;
+  display: block;
+}
+
+.ia-float-btn svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .site-header {
+    flex-direction: column;
+    gap: 14px;
+    padding: 16px 24px;
+  }
+
+  .main-nav {
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .inicio-hero {
+    padding: 40px 24px 50px;
+  }
+>>>>>>> 2204991080a311a169282c23742bc43c28da6e63
 }

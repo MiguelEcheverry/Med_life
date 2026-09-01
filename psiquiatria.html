@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psiquiatria | Medlife - Virtual Healthcare</title>
+    <link rel="stylesheet" href="psiquiatria.css">
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Iconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Página independiente de especialidad: sin header ni logo -->
+    <main>
+        <section class="detail-view">
+            <button class="btn-back" onclick="volverAEspecialidades()">
+                <i class="fa-solid fa-arrow-left"></i> Volver a Especialidades
+            </button>
+
+            <h2 class="detail-title">PSIQUIATRIA</h2>
+
+            <div class="detail-banner">
+                <img src="https://loremflickr.com/1000/500/psychiatry/mentalhealth/brain?lock=88" alt="Psiquiatría" loading="lazy">
+            </div>
+
+            <div class="detail-info-card">
+                <p>Brinda atención médica especializada para la prevención, diagnóstico y tratamiento de trastornos de salud mental. Incluye evaluación clínica, manejo terapéutico y, cuando es necesario, tratamiento farmacológico para mejorar el bienestar emocional y la calidad de vida del paciente.</p>
+            </div>
+
+            <div class="btn-container">
+                <button class="btn-consulta" onclick="iniciarConsulta('Psiquiatría')">Realiza tu consulta</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer de Contacto -->
+    <footer>
+        <div class="footer-item"><i class="fa-solid fa-heart-circle-check"></i></div>
+        <div class="footer-item">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:+573227048889">+57 322 7048889</a>
+        </div>
+        <div class="footer-item">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:info@medilifegroup.com">INFO@MEDILIFEGROUP.COM</a>
+        </div>
+    </footer>
+
+    <!-- Insignia flotante de asistente -->
+    <div class="ai-badge" id="ai-badge" title="Asistente virtual"><i class="fa-solid fa-wand-magic-sparkles"></i>IA+</div>
+
+    <script src="detalle.js"></script>
+</body>
+</html>

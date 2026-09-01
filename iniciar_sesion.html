@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEDLIFE - Inicia Sesión</title>
+  <link rel="stylesheet" href="iniciar_sesion.css">
+</head>
+<body>
+
+  <div class="login-page">
+
+    <!-- TOP PHOTO SECTION -->
+    <div class="login-page__photo">
+      <div class="login-page__overlay"></div>
+
+      <div class="login-navbar">
+        <div class="login-navbar__logo-badge">
+          <img src="assets/img/iniciar sesion/imagen.png" alt="MEDLIFE logo" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+        <div class="login-navbar__text">
+          <span class="login-navbar__brand">MEDLIFE</span>
+          <span class="login-navbar__subtitle">VIRTUAL HEALTHCARE</span>
+        </div>
+      </div>
+
+      <a href="inicio_de_sesion.html" class="back-btn" aria-label="Volver">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M15 5 L8 12 L15 19" fill="none" stroke="#ffffff" stroke-width="2.4"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- BLUE GRADIENT LOWER SECTION -->
+    <div class="login-page__background">
+      <div class="scroll-indicator" aria-hidden="true"></div>
+    </div>
+
+    <!-- LOGIN CARD -->
+    <div class="login-card">
+      <div class="login-card__icon">
+        <svg class="lock-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="5" y="10" width="14" height="10" rx="2.2" fill="none" stroke="#ffffff" stroke-width="1.8"/>
+          <path d="M8 10 V7 a4 4 0 0 1 8 0 V10" fill="none" stroke="#ffffff" stroke-width="1.8"
+                stroke-linecap="round"/>
+        </svg>
+        <div class="login-card__dots">****</div>
+      </div>
+
+      <h1 class="login-card__title">INICIA SESIÓN</h1>
+
+      <form class="login-form" action="inicio.html" method="get">
+        <label class="login-form__label" for="email">CORREO ELECTRÓNICO</label>
+        <input class="login-form__input" type="email" id="email" name="email" autocomplete="email" required>
+
+        <label class="login-form__label" for="password">CONTRASEÑA</label>
+        <input class="login-form__input" type="password" id="password" name="password" autocomplete="current-password" required>
+
+        <button type="submit" class="login-form__submit">ACCESO</button>
+
+        <a href="cambiar_contraseña.html" class="login-form__forgot">¿OLVIDASTE TU CONTRASEÑA?</a>
+      </form>
+    </div>
+
+  </div>
+
+</body>
+</html>

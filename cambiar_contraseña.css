@@ -1,0 +1,295 @@
+/* ============================
+   RESET & BASE
+============================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', 'Helvetica Neue', sans-serif;
+}
+
+:root {
+  --color-primary: #2FA9E0;
+  --color-primary-light: #6FC4EE;
+  --color-primary-dark: #1E88C7;
+  --color-blue-deep: #1B6FA8;
+  --color-gray-input: #ACACAC;
+  --color-text-gray: #4A4A4A;
+}
+
+/* ============================
+   PAGE WRAPPER
+============================ */
+.cp-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* ============================
+   TOP PHOTO SECTION
+============================ */
+.cp-page__photo {
+  position: relative;
+  height: 271px;
+  background-image: url('https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?q=80&w=1600&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+}
+
+.cp-page__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 22, 25, 0.45);
+}
+
+/* ============================
+   NAVBAR (over photo)
+============================ */
+.cp-navbar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 24px 0;
+}
+
+.cp-navbar__logo-badge {
+  width: 62px;
+  height: 62px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary-dark));
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cp-navbar__logo-badge svg {
+  width: 34px;
+  height: 34px;
+}
+
+.cp-navbar__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.cp-navbar__brand {
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.cp-navbar__subtitle {
+  font-size: 11px;
+  font-weight: 700;
+  color: #eaf6ff;
+  letter-spacing: 1.5px;
+  margin-top: 2px;
+}
+
+/* ============================
+   BACK BUTTON (smaller, modernized)
+============================ */
+.back-btn {
+  position: relative;
+  z-index: 2;
+  margin: 14px 0 0 22px;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.26);
+  transform: translateX(-2px);
+}
+
+.back-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ============================
+   LOWER GRADIENT BACKGROUND
+============================ */
+.cp-page__background {
+  position: relative;
+  min-height: calc(100vh - 271px);
+  background: linear-gradient(180deg, var(--color-blue-deep) 0%, var(--color-primary) 45%, var(--color-primary-light) 100%);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 26px;
+  left: 16%;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ============================
+   CHANGE PASSWORD CARD
+============================ */
+.cp-card {
+  position: absolute;
+  top: 146px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 680px;
+  max-width: calc(100% - 32px);
+  background: #ffffff;
+  border-radius: 22px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+  padding: 58px 40px 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+}
+
+.cp-card__icon {
+  position: absolute;
+  top: -45px;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary-dark));
+  box-shadow: 0 10px 25px rgba(30, 136, 199, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.lock-icon {
+  width: 26px;
+  height: 26px;
+}
+
+.cp-card__dots {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--color-primary-dark);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+.cp-card__title {
+  color: var(--color-primary);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* ============================
+   FORM
+============================ */
+.cp-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cp-form__label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text-gray);
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.cp-form__input {
+  width: 100%;
+  height: 34px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--color-gray-input);
+  padding: 0 16px;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 18px;
+  outline: none;
+  transition: box-shadow 0.2s ease;
+}
+
+.cp-form__input:focus {
+  box-shadow: 0 0 0 3px rgba(47, 169, 224, 0.45);
+}
+
+.cp-form__submit {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(90deg, var(--color-primary-light), var(--color-primary-dark));
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(30, 136, 199, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 4px;
+}
+
+.cp-form__submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 26px rgba(30, 136, 199, 0.5);
+}
+
+.cp-form__message {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #2E8B57;
+  min-height: 16px;
+}
+
+.cp-form__message.is-error {
+  color: #D0402B;
+}
+
+/* ============================
+   RESPONSIVE
+============================ */
+@media (max-width: 760px) {
+  .cp-card {
+    width: 92%;
+    padding: 54px 24px 28px;
+  }
+
+  .cp-navbar__brand {
+    font-size: 21px;
+  }
+
+  .cp-navbar__logo-badge {
+    width: 52px;
+    height: 52px;
+  }
+}

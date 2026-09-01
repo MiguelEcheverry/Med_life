@@ -1,46 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MedLife | Atención médica virtual inmediata</title>
-  <link rel="stylesheet" href="inicio_de_sesion.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedLife - Virtual Healthcare</title>
+    <link rel="stylesheet" href="inicio_de_sesion.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <div class="page">
-
-    <!-- Encabezado con logotipo -->
-    <header class="site-header">
-      <a href="#" class="logo" aria-label="MedLife - Inicio">
-        <img class="logo__icon" src="assets/logo-badge.png" alt="Logotipo MedLife: corazón con estetoscopio">
-        <span class="logo__text">
-          <span class="logo__name">MEDLIFE</span>
-          <span class="logo__tagline">Virtual Healthcare</span>
-        </span>
-      </a>
+    <!-- Encabezado / Navbar -->
+    <header class="navbar">
+        <div class="logo-container">
+            <!-- PÓN EL LINK DEL LOGO DEL NAVBAR AQUÍ -->
+            <img src="assets/img/inicio de sesion/logo.png" alt="MedLife Logo" class="nav-logo-img">
+            
+            <div class="brand-text">
+                <span class="brand-name">MEDLIFE</span>
+                <span class="brand-sub">VIRTUAL HEALTHCARE</span>
+            </div>
+        </div>
     </header>
 
-    <!-- Sección principal (hero) -->
-    <section class="hero" aria-label="Presentación de atención médica virtual">
+    <!-- Sección Hero / Banner Principal -->
+    <main class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            
+            <!-- Círculo Azul Central con el Logo en el medio -->
+            <div class="center-badge">
+                <!-- PÓN EL LINK DEL LOGO CENTRAL AQUÍ -->
+                <img src="assets/img/inicio de sesion/blanco.png" alt="MedLife Icono" class="center-logo-img">
+            </div>
 
-      <div class="hero__badge" aria-hidden="true">
-        <img src="assets/logo-badge.png" alt="">
-      </div>
+            <!-- Título Principal -->
+            <h1 class="hero-title">Atención médica inmediata,<br>sin salir de casa.</h1>
 
-      <div class="hero__content">
-        <h1 class="hero__title">Atención médica inmediata,<br>sin salir de casa.</h1>
-        <p class="hero__subtitle">Habla con un médico certificado por videollamada, en minutos y desde cualquier lugar.</p>
+            <!-- Botones Funcionales (Reemplaza los href con tus rutas reales) -->
+            <div class="cta-container">
+                <a href="registro.html" class="btn btn-primary">¡REGÍSTRATE CON NOSOTROS!</a>
+                <a href="iniciar_sesion.html" class="btn btn-secondary">INICIA SESIÓN</a>
+            </div>
 
-        <div class="hero__actions">
-          <a href="#registro" class="btn btn--primary">Regístrate con nosotros</a>
-          <a href="#login" class="btn btn--secondary">Inicia sesión</a>
         </div>
-      </div>
-
-    </section>
-
-  </div>
+    </main>
 
 </body>
 </html>
