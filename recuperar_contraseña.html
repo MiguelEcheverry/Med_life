@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nueva contraseña · MedLife</title>
-<link rel="stylesheet" href="nueva_contraseña.css">
+<title>Cambiar contraseña · MedLife</title>
+<link rel="stylesheet" href="recuperar_contraseña.css">
 </head>
 <body class="auth-page">
 
-  <a href="recuperar_contraseña.html" class="back-link" aria-label="Volver">
+  <a href="iniciar_sesion.html" class="back-link" aria-label="Volver a inicio de sesión">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M15 18l-6-6 6-6"/>
     </svg>
@@ -39,20 +39,20 @@
         </svg>
       </div>
 
-      <h2>Nueva contraseña</h2>
+      <h2>Cambiar contraseña</h2>
 
-      <form class="auth-form" action="iniciar_sesion.html">
+      <form class="auth-form" action="nueva_contraseña.html">
         <div class="field">
-          <label for="contrasena">Contraseña</label>
-          <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" name="correo" placeholder="Correo electrónico" required>
         </div>
 
         <div class="field">
-          <label for="verificar">Verificar contraseña</label>
-          <input type="password" id="verificar" name="verificar" placeholder="Verificar contraseña" required>
+          <label for="codigo">Código de verificación</label>
+          <input type="text" id="codigo" name="codigo" placeholder="Código de verificación" required>
         </div>
 
-        <a href="iniciar_sesion.html" class="auth-submit">Acceder</a>
+        <a href="nueva_contraseña.html" class="auth-submit">Cambiar</a>
       </form>
     </div>
   </section>

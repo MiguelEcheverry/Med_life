@@ -1,77 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MEDLIFE - Regístrate</title>
-  <link rel="stylesheet" href="registro.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regístrate · MedLife</title>
+<link rel="stylesheet" href="registro.css">
 </head>
-<body>
+<body class="auth-page">
 
-  <div class="register-page">
+  <a href="acceso.html" class="back-link" aria-label="Volver al inicio">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15 18l-6-6 6-6"/>
+    </svg>
+  </a>
 
-    <!-- TOP PHOTO SECTION -->
-    <div class="register-page__photo">
-      <div class="register-page__overlay"></div>
+  <header class="topbar">
+    <a href="acceso.html" class="brand" aria-label="Ir al inicio de MedLife">
+      <span class="brand-logo"><assets><img src="assets/img/iniciar sesion/imagen.png" alt="Logo de MedLife"></span>
+      <span class="brand-name">
+        <strong>MEDLIFE</strong>
+        <span>VIRTUAL HEALTHCARE</span>
+      </span>
+    </a>
+  </header>
 
-      <div class="register-navbar">
-        <div class="register-navbar__logo-badge">
-          <img src="assets/img/registro/image.png" alt="MEDLIFE logo" style="width: 100%; height: 100%; object-fit: contain;">
-        </div>
-        <div class="register-navbar__text">
-          <span class="register-navbar__brand">MEDLIFE</span>
-          <span class="register-navbar__subtitle">VIRTUAL HEALTHCARE</span>
-        </div>
+  <section class="auth-banner">
+    <div class="auth-banner-media">
+      <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=1600&q=80" alt="Equipo médico revisando información clínica en una pantalla digital">
+    </div>
+  </section>
+
+  <section class="auth-lower">
+    <div class="auth-card">
+      <div class="auth-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="10" width="16" height="10" rx="2"/>
+          <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+        </svg>
       </div>
 
-      <a href="inicio_de_sesion.html" class="back-btn" aria-label="Volver">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M15 5 L8 12 L15 19" fill="none" stroke="#ffffff" stroke-width="2.4"
-                stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-    </div>
+      <h2>Regístrate</h2>
 
-    <!-- BLUE GRADIENT LOWER SECTION -->
-    <div class="register-page__background">
-      <div class="scroll-indicator" aria-hidden="true"></div>
-    </div>
-
-    <!-- REGISTER CARD -->
-    <div class="register-card">
-      <div class="register-card__icon">
-        <svg class="lock-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="5" y="10" width="14" height="10" rx="2.2" fill="none" stroke="#ffffff" stroke-width="1.8"/>
-          <path d="M8 10 V7 a4 4 0 0 1 8 0 V10" fill="none" stroke="#ffffff" stroke-width="1.8"
-                stroke-linecap="round"/>
-        </svg>
-        <div class="register-card__dots">****</div>
-      </div>
-
-      <h1 class="register-card__title">REGÍSTRATE</h1>
-
-      <form class="register-form" action="iniciar_sesion.html" method="get">
-        <label class="register-form__label" for="fullname">NOMBRE COMPLETO</label>
-        <input class="register-form__input" type="text" id="fullname" name="fullname" autocomplete="name" required>
-
-        <label class="register-form__label" for="email">CORREO ELECTRÓNICO</label>
-        <input class="register-form__input" type="email" id="email" name="email" autocomplete="email" required>
-
-        <label class="register-form__label" for="username">USUARIO</label>
-        <input class="register-form__input" type="text" id="username" name="username" autocomplete="username" required>
-
-        <label class="register-form__label" for="password">CONTRASEÑA</label>
-        <input class="register-form__input" type="password" id="password" name="password" autocomplete="new-password" required>
-
-        <div class="register-form__actions">
-          <button type="submit" class="register-form__submit">INICIAR SESIÓN</button>
+      <form class="auth-form" action="iniciar_sesion.html">
+        <div class="field">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required>
         </div>
 
-        <a href="iniciar_sesion.html" class="register-form__link">¿YA TIENES UNA CUENTA? INICIA SESIÓN</a>
+        <div class="field">
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" name="correo" placeholder="Correo electrónico" required>
+        </div>
+
+        <div class="field">
+          <label for="usuario">Usuario</label>
+          <input type="text" id="usuario" name="usuario" placeholder="Usuario" required>
+        </div>
+
+        <div class="field">
+          <label for="contrasena">Contraseña</label>
+          <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
+        </div>
+
+        <a href="iniciar_sesion.html" class="auth-submit">Iniciar sesión</a>
       </form>
-    </div>
 
-  </div>
+      <p class="auth-form-footer">
+        ¿Ya tienes una cuenta? <a href="iniciar_sesion.html">Inicia sesión</a>
+      </p>
+    </div>
+  </section>
 
 </body>
 </html>
