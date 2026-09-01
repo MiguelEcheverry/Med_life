@@ -109,7 +109,7 @@ body {
   justify-content: center;
   text-align: center;
   padding: 40px 60px;
-  background: linear-gradient(135deg, #0F2A3D 0%, #14456B 45%, var(--blue-primary) 100%);
+  background: linear-gradient(135deg, var(--blue-light) 0%, var(--blue-primary) 55%, #0B4C73 100%);
   overflow: hidden;
 }
 
@@ -117,17 +117,19 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 20%, rgba(95, 195, 232, 0.35) 0%, rgba(95, 195, 232, 0) 45%);
+  background: radial-gradient(circle at 50% 20%, rgba(79, 184, 214, 0.35) 0%, rgba(79, 184, 214, 0) 45%);
   pointer-events: none;
 }
 
 /* ===== Círculo del logo (badge) ===== */
 .hero-badge {
   position: relative;
-  width: 160px;
-  height: 160px;
+  width: 120px;
+  height: 120px;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
   border-radius: 50%;
-  background: linear-gradient(135deg, #5FC3E8 0%, #1C86C4 100%);
+  background: linear-gradient(135deg, var(--blue-light) 0%, var(--blue-primary) 100%);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
