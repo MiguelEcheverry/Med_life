@@ -35,12 +35,6 @@ body {
   flex-shrink: 0;
 }
  
-.logo-icon {
-  width: 100px;
-  height: 68px;
-  flex-shrink: 0;
-}
- 
 .brand-name {
   font-weight: 900;
   font-size: 30px;
@@ -91,6 +85,8 @@ body {
   font-weight: 900;
   cursor: pointer;
   line-height: 1;
+  color: #fff;
+  text-decoration: none;
 }
  
 /* ============ CONTENEDOR DEL FORMULARIO ============ */

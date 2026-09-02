@@ -1,0 +1,298 @@
+/* =========================================================
+   MEDLIFE VIRTUAL HEALTHCARE
+   Estilos: página de detalle — CARDIOLOGIA
+   (mismo diseño base, archivo independiente por especialidad)
+   ========================================================= */
+
+:root {
+    --primary-blue: #2b95cc;
+    --dark-blue: #155b9c;
+    --text-gray: #666666;
+    --info-gray: #7a7a7a;
+    --light-bg: #f8f9fa;
+    --white: #ffffff;
+    --font-sans: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-serif: 'Merriweather', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-sans);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--text-gray);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================================================
+   VISTA DE DETALLE (sin header/logo)
+   ========================================================= */
+.detail-view {
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    padding: 50px 4% 60px;
+    flex-grow: 1;
+}
+
+.btn-back {
+    background-color: transparent;
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
+    padding: 9px 18px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-sans);
+    margin-bottom: 20px;
+}
+
+.btn-back:hover {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+.detail-title {
+    color: var(--dark-blue);
+    font-size: 2.1rem;
+    font-weight: 800;
+    margin: 10px 0 25px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-banner {
+    width: 100%;
+    max-width: 900px;
+    height: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 0 auto 25px;
+    background-color: #e6ecf1;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+.detail-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.detail-info-card {
+    background-color: var(--white);
+    padding: 45px 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    max-width: 900px;
+    margin: 0 auto;
+    border: 1px solid #eaeaea;
+    text-align: left;
+}
+
+.detail-info-card p {
+    color: var(--info-gray);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-info-card p + p {
+    margin-top: 18px;
+}
+
+/* =========================================================
+   BENEFICIOS DEL TRATAMIENTO
+   ========================================================= */
+.beneficios-box {
+    background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+    border-radius: 20px;
+    padding: 35px 40px;
+    max-width: 900px;
+    margin: 25px auto 0;
+    text-align: left;
+    color: var(--white);
+    box-shadow: 0 10px 24px rgba(21, 91, 156, 0.25);
+}
+
+.beneficios-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 25px;
+}
+
+.beneficios-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 30px;
+}
+
+.beneficio-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.beneficio-icon {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: var(--white);
+}
+
+.beneficio-text h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 4px;
+}
+
+.beneficio-text p {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.btn-container {
+    margin-top: 30px;
+}
+
+.btn-consulta {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(43, 149, 204, 0.4);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    font-family: var(--font-sans);
+}
+
+.btn-consulta:hover {
+    transform: scale(1.05);
+    background-color: var(--dark-blue);
+}
+
+/* =========================================================
+   FOOTER (se mantiene en todas las páginas)
+   ========================================================= */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+    padding: 20px;
+    background-color: var(--white);
+    border-bottom: 6px solid var(--primary-blue);
+    color: var(--primary-blue);
+    font-weight: 700;
+    flex-wrap: wrap;
+    margin-top: auto;
+}
+
+.footer-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.footer-item i {
+    font-size: 1.4rem;
+}
+
+.footer-item a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+/* Insignia flotante de asistente */
+.ai-badge {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--primary-blue);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    z-index: 1200;
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    transition: transform 0.2s ease;
+}
+
+.ai-badge:hover {
+    transform: scale(1.08);
+}
+
+.ai-badge i {
+    font-size: 0.95rem;
+    margin-bottom: 1px;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 768px) {
+    .detail-view { padding-top: 40px; }
+    .btn-back { position: static; margin-bottom: 20px; }
+    .detail-info-card { padding: 30px 20px; }
+    .beneficios-box { padding: 25px 22px; }
+    .beneficios-grid { grid-template-columns: 1fr; gap: 20px; }
+    footer { gap: 24px; }
+}
