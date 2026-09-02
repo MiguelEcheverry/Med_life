@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nutricion | Medlife - Virtual Healthcare</title>
     <link rel="stylesheet" href="nutricion.css">
-    <!-- Tipografías -->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <!-- Iconos de FontAwesome -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Página independiente de especialidad: sin header ni logo -->
     <main>
         <section class="detail-view">
             <button class="btn-back" onclick="volverAEspecialidades()">
@@ -28,6 +27,41 @@
 
             <div class="detail-info-card">
                 <p>Ofrece asesoría profesional para mejorar los hábitos alimenticios y promover una alimentación saludable. Incluye evaluación nutricional, elaboración de planes de alimentación personalizados y orientación para la prevención y manejo de diferentes condiciones de salud.</p>
+                <p>Está dirigida a personas que buscan alcanzar un peso saludable, mejorar su rendimiento físico o controlar condiciones como diabetes, hipertensión o trastornos digestivos, siempre con acompañamiento profesional en cada etapa del proceso.</p>
+            </div>
+
+            <div class="beneficios-box">
+                <div class="beneficios-title">Beneficios del tratamiento</div>
+                <div class="beneficios-grid">
+                    <div class="beneficio-item">
+                        <div class="beneficio-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+                        <div class="beneficio-text">
+                            <h4>Plan personalizado</h4>
+                            <p>Alimentación ajustada a tus objetivos y necesidades.</p>
+                        </div>
+                    </div>
+                    <div class="beneficio-item">
+                        <div class="beneficio-icon"><i class="fa-solid fa-weight-scale"></i></div>
+                        <div class="beneficio-text">
+                            <h4>Evaluación nutricional</h4>
+                            <p>Análisis completo de tu estado nutricional actual.</p>
+                        </div>
+                    </div>
+                    <div class="beneficio-item">
+                        <div class="beneficio-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                        <div class="beneficio-text">
+                            <h4>Prevención de enfermedades</h4>
+                            <p>Hábitos saludables para prevenir y controlar condiciones médicas.</p>
+                        </div>
+                    </div>
+                    <div class="beneficio-item">
+                        <div class="beneficio-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                        <div class="beneficio-text">
+                            <h4>Seguimiento continuo</h4>
+                            <p>Acompañamiento y ajustes periódicos del plan.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="btn-container">
@@ -36,7 +70,6 @@
         </section>
     </main>
 
-    <!-- Footer de Contacto -->
     <footer>
         <div class="footer-item"><i class="fa-solid fa-heart-circle-check"></i></div>
         <div class="footer-item">
@@ -49,7 +82,6 @@
         </div>
     </footer>
 
-    <!-- Insignia flotante de asistente -->
     <div class="ai-badge" id="ai-badge" title="Asistente virtual"><i class="fa-solid fa-wand-magic-sparkles"></i>IA+</div>
 
     <script src="detalle.js"></script>

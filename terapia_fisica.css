@@ -113,6 +113,7 @@ main {
     max-width: 900px;
     margin: 0 auto;
     border: 1px solid #eaeaea;
+    text-align: left;
 }
 
 .detail-info-card p {
@@ -122,6 +123,92 @@ main {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+}
+
+.detail-info-card p + p {
+    margin-top: 18px;
+}
+
+/* =========================================================
+   BLOQUE ESTÉTICO AZUL — BENEFICIOS
+   Rompe la monotonía de tarjetas blancas y aporta dinamismo
+   ========================================================= */
+.beneficios-block {
+    max-width: 900px;
+    margin: 30px auto 0;
+    background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+    border-radius: 20px;
+    padding: 40px 45px;
+    box-shadow: 0 14px 30px rgba(21, 91, 156, 0.28);
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+}
+
+/* forma decorativa sutil, refuerza el dinamismo sin saturar */
+.beneficios-block::after {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 220px;
+    height: 220px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+}
+
+.beneficios-heading {
+    color: var(--white);
+    font-size: 1.3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 1;
+}
+
+.beneficios-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.beneficio-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.beneficio-item i {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.18);
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.beneficio-texto h4 {
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.beneficio-texto p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-transform: none;
+    letter-spacing: normal;
 }
 
 .btn-container {
@@ -223,5 +310,7 @@ footer {
     .detail-view { padding-top: 40px; }
     .btn-back { position: static; margin-bottom: 20px; }
     .detail-info-card { padding: 30px 20px; }
+    .beneficios-block { padding: 30px 22px; }
+    .beneficios-grid { grid-template-columns: 1fr; }
     footer { gap: 24px; }
 }
