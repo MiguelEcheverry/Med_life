@@ -26,16 +26,21 @@ body { font-family: 'Montserrat', sans-serif; background: #ffffff; }
 
 .gray-bar { width: 100%; height: 36px; background: var(--gray-bar); }
 
+/* Fondo estándar del proyecto (misma imagen usada en Inicio/Servicios/Blog/Farmacia) */
 .pagos-section {
-  background-image: url('assets/img/farmacia/farmacia-bg.png');
+  background-image: url('assets/img/pagos/especialidades-bg.png');
   background-size: cover;
   background-position: center;
   padding: 50px 60px 90px;
   min-height: 70vh;
 }
 
+/* Título del estado de checkout: queda directamente sobre el fondo (no dentro
+   de una tarjeta blanca), así que pasa a blanco para mantener el contraste.
+   Los h1 de empty-state/success-state NO se ven afectados: la regla de abajo
+   (.empty-state h1, .success-state h1) los mantiene en azul sobre su tarjeta blanca. */
 .pagos-section h1 {
-  color: var(--blue-primary);
+  color: #ffffff;
   font-weight: 800;
   font-size: clamp(28px, 4vw, 42px);
   margin-bottom: 40px;

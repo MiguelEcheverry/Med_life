@@ -85,13 +85,13 @@ body {
   background: var(--gray-bar);
 }
 
-/* ===== Sección Nosotros (foto de fondo + overlay oscuro) ===== */
+/* ===== Sección Nosotros (fondo estándar del proyecto) ===== */
 .nosotros-hero {
   position: relative;
   display: flex;
   justify-content: center;
   padding: 100px 40px;
-  background-image: url('assets/img/nosotros/nosotros-bg.png');
+  background-image: url('assets/img/nosotros/especialidades-bg.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

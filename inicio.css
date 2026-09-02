@@ -109,16 +109,10 @@ body {
   justify-content: center;
   text-align: center;
   padding: 40px 60px;
-  background: linear-gradient(135deg, var(--blue-light) 0%, var(--blue-primary) 55%, #0B4C73 100%);
+  background-image: url('assets/img/inicio/especialidades-bg.png');
+  background-size: cover;
+  background-position: center;
   overflow: hidden;
-}
-
-.inicio-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 20%, rgba(79, 184, 214, 0.35) 0%, rgba(79, 184, 214, 0) 45%);
-  pointer-events: none;
 }
 
 /* ===== Círculo del logo (badge) ===== */
