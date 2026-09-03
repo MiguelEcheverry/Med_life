@@ -144,9 +144,9 @@ body {
   padding: 40px 0;
 }
 
-/* Sección de fondo */
+/* Sección de fondo (misma imagen estándar usada en Inicio/Servicios/Blog) */
 .farmacia-section {
-  background-image: url('assets/img/farmacia/farmacia-bg.png');
+  background-image: url('assets/img/farmacia/especialidades-bg.png');
   background-size: cover;
   background-position: center;
   padding: 40px 60px 80px;

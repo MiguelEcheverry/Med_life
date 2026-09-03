@@ -24,11 +24,24 @@ body { font-family: 'Montserrat', sans-serif; background: #ffffff; }
 
 .gray-bar { width: 100%; height: 36px; background: var(--gray-bar); }
 
+/* ===== Sección Blog (fondo con imagen, igual que Inicio/Servicios) ===== */
 .blog-section {
-  background-image: url('assets/img/farmacia/farmacia-bg.png');
+  background-image: url('assets/img/blog/especialidades-bg.png');
   background-size: cover;
   background-position: center;
-  padding: 30px 60px 60px;
+  padding: 50px 60px 70px;
+}
+
+/* ===== Panel blanco que contiene todo el contenido =====
+   Así el fondo se ve como marco alrededor, y el texto conserva
+   exactamente los mismos colores que ya tenía (sin tocarlos) */
+.content-panel {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Meta (fecha + categoría) */
@@ -36,7 +49,7 @@ body { font-family: 'Montserrat', sans-serif; background: #ffffff; }
   display: flex;
   align-items: center;
   gap: 30px;
-  padding: 10px 0 24px;
+  padding: 0 0 24px;
 }
 .meta-item {
   display: flex;
@@ -65,12 +78,18 @@ body { font-family: 'Montserrat', sans-serif; background: #ffffff; }
   margin-bottom: 24px;
   flex-wrap: wrap;
 }
+
+/* Tarjeta blanca alrededor del ícono del corazón (mismo criterio que Servicios) */
 .post-image {
   width: 200px;
   height: 200px;
   flex-shrink: 0;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
-.post-image svg { width: 100%; height: 100%; }
+.post-image svg { width: 100%; height: 100%; display: block; }
 
 .post-intro { flex: 1; min-width: 260px; }
 .post-intro h1 {
@@ -132,7 +151,8 @@ body { font-family: 'Montserrat', sans-serif; background: #ffffff; }
 /* Responsive */
 @media (max-width: 900px) {
   .site-header { flex-direction: column; gap: 14px; padding: 16px 24px; }
-  .blog-section { padding: 20px 24px 50px; }
+  .blog-section { padding: 30px 20px 50px; }
+  .content-panel { padding: 28px 24px; }
   .blog-grid { grid-template-columns: 1fr; }
   .post-meta { flex-wrap: wrap; gap: 14px; }
 }
