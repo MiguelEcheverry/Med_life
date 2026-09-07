@@ -8,74 +8,15 @@
 </head>
 <body>
 <div id="app">
- 
-  <!-- ============ LANDING VIEW ============ -->
-  <div id="landingView" class="view active">
-    <header>
-      <div class="logo">
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M32 54C18 44 6 34 6 21C6 12 13 6 20 6C26 6 30 10 32 14C34 10 38 6 44 6C51 6 58 12 58 21C58 34 46 44 32 54Z" stroke="#1a7fb5" stroke-width="3.5"/>
-          <path d="M14 30H22L26 20L32 40L36 26L39 30H50" stroke="#1a7fb5" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <div class="logo-text">
-          <div class="l1">MEDLIFE</div>
-          <div class="l2">VIRTUAL HEALTHCARE</div>
-        </div>
-      </div>
-      <nav>
-        <a>INICIO</a><a>NOSOTROS</a><a>ESPECIALIDADES</a><a class="active">SERVICIOS</a><a>BLOG</a><a>FARMACIA</a><a>PAGOS</a>
-      </nav>
-    </header>
-    <div class="subbar"></div>
- 
-    <div class="hero">
-      <h1>Elige la forma en la que quieres ser atendido</h1>
-      <div class="choices">
-        <div class="choice">
-          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="14" y="14" width="72" height="52" rx="6" stroke="#5fb8bd" stroke-width="3"/>
-            <line x1="14" y1="28" x2="86" y2="28" stroke="#5fb8bd" stroke-width="3"/>
-            <circle cx="21" cy="21" r="1.6" fill="#5fb8bd"/>
-            <circle cx="27" cy="21" r="1.6" fill="#5fb8bd"/>
-            <circle cx="33" cy="21" r="1.6" fill="#5fb8bd"/>
-            <path d="M50 74V80M40 86H60" stroke="#5fb8bd" stroke-width="3" stroke-linecap="round"/>
-            <circle cx="30" cy="20" r="1.6" fill="#5fb8bd"/>
-            <path d="M44 34C48 26 54 26 58 34C62 42 68 46 74 40" stroke="#c98c9b" stroke-width="2.5" fill="none"/>
-            <path d="M24 50L34 50L38 40L45 58L50 46L54 50L76 50" stroke="#1a7fb5" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <button id="btnConsulta">CONSULTA GENERAL<br>MEDICO EN LINEA</button>
-        </div>
-        <div class="choice">
-          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M50 12L38 22H62L50 12Z" stroke="#5fb8bd" stroke-width="3" stroke-linejoin="round"/>
-            <rect x="26" y="22" width="48" height="58" rx="3" stroke="#5fb8bd" stroke-width="3"/>
-            <rect x="44" y="18" width="12" height="12" fill="#fff" stroke="#5fb8bd" stroke-width="2.5"/>
-            <line x1="50" y1="20" x2="50" y2="28" stroke="#5fb8bd" stroke-width="2"/>
-            <line x1="46" y1="24" x2="54" y2="24" stroke="#5fb8bd" stroke-width="2"/>
-            <g stroke="#5fb8bd" stroke-width="2">
-              <rect x="32" y="32" width="8" height="8"/><rect x="46" y="32" width="8" height="8"/><rect x="60" y="32" width="8" height="8"/>
-              <rect x="32" y="44" width="8" height="8"/><rect x="46" y="44" width="8" height="8"/><rect x="60" y="44" width="8" height="8"/>
-            </g>
-            <rect x="42" y="60" width="16" height="20" stroke="#5fb8bd" stroke-width="2.5"/>
-            <line x1="50" y1="60" x2="50" y2="80" stroke="#5fb8bd" stroke-width="2"/>
-          </svg>
-          <button id="btnIA">ORIENTACIÓN CON<br>AYUDA DE IA</button>
-        </div>
-      </div>
-      <p class="tagline">NUESTROS PROFESIONALES DE LA SALUD SON LA CLAVE PARA BRINDARTE EL MEJOR SERVICIO MÉDICO PARTICULAR. SON CERCANOS, COMPRENSIVOS, CERTIFICADOS Y ESTÁN DISPONIBLES PARA TI EN EL MOMENTO QUE LOS NECESITES. COMUNÍCATE CON NOSOTROS</p>
-      <div class="scrollbar-deco"></div>
-      <div class="ai-badge">IA+</div>
-    </div>
-  </div>
- 
+
   <!-- ============ CHAT VIEW ============ -->
-  <div id="chatView" class="view">
+  <div id="chatView" class="view active">
     <div class="chat-topbar">
-      <span class="back" id="backBtn">&#8249;</span>
+      <a href="servicios.html" class="back-link" title="Volver a Servicios">&#8249;</a>
       <span class="title">CHAT</span>
     </div>
     <div class="chat-body">
- 
+
       <!-- LEFT -->
       <div class="panel-left">
         <div class="panel-label">PERFIL</div>
@@ -95,7 +36,7 @@
         <div class="contact-row"><div class="contact-avatar"></div><div class="contact-line"></div></div>
         <div class="contact-row"><div class="contact-avatar"></div><div class="contact-line"></div></div>
       </div>
- 
+
       <!-- MIDDLE -->
       <div class="panel-mid">
         <div class="search-bar">
@@ -119,7 +60,7 @@
           <input id="chatInput" type="text" placeholder="Escribe un mensaje...">
         </div>
       </div>
- 
+
       <!-- RIGHT -->
       <div class="panel-right">
         <div class="patient-header">
@@ -131,13 +72,13 @@
           </div>
         </div>
         <div class="bar-line" style="width:80%;"></div>
- 
+
         <div class="icon-row">
           <div class="icon-btn filled" id="iconPhone"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.4 21 3 13.6 3 4.9c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg></div>
           <div class="icon-btn" id="iconCamera"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.6-3h4.8L16 7"/><circle cx="12" cy="13.5" r="3.5"/></svg></div>
           <div class="icon-btn" id="iconChat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 1 1-3.2-6.4L21 4l-1 4.4A8 8 0 0 1 21 12z"/></svg></div>
         </div>
- 
+
         <div>
           <div class="section-label">PROXIMA CONSULTA</div>
           <div class="next-box">
@@ -148,7 +89,7 @@
             </div>
           </div>
         </div>
- 
+
         <div>
           <div class="section-label">TRATAMIENTO</div>
           <div id="treatmentBox">
@@ -157,7 +98,7 @@
             <div class="bar-line" style="width:80%;"></div>
           </div>
         </div>
- 
+
         <div id="archivosSection">
           <div class="section-label">ARCHIVOS</div>
           <div class="archivo-thumb" id="archivoThumb">
@@ -168,12 +109,12 @@
           </div>
         </div>
       </div>
- 
+
     </div>
   </div>
- 
+
 </div>
- 
+
 <!-- MODAL for archivo -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal-box">
@@ -203,23 +144,8 @@
     </svg>
   </div>
 </div>
- 
+
 <script>
-const landingView = document.getElementById('landingView');
-  const chatView = document.getElementById('chatView');
- 
-  document.getElementById('btnConsulta').addEventListener('click', () => {
-    landingView.classList.remove('active');
-    chatView.classList.add('active');
-  });
-  document.getElementById('btnIA').addEventListener('click', () => {
-    alert('Orientación con ayuda de IA: próximamente disponible.');
-  });
-  document.getElementById('backBtn').addEventListener('click', () => {
-    chatView.classList.remove('active');
-    landingView.classList.add('active');
-  });
- 
   // Attach ("+") menu
   const plusBtn = document.getElementById('plusBtn');
   const attachMenu = document.getElementById('attachMenu');
@@ -238,7 +164,7 @@ const landingView = document.getElementById('landingView');
       alert('Opción seleccionada: ' + item.textContent);
     });
   });
- 
+
   // Chat input functional
   const messagesBox = document.getElementById('messages');
   const chatInput = document.getElementById('chatInput');
@@ -251,7 +177,7 @@ const landingView = document.getElementById('landingView');
     messagesBox.appendChild(row);
     chatInput.value = '';
     messagesBox.scrollTop = messagesBox.scrollHeight;
- 
+
     // simple simulated doctor reply
     setTimeout(() => {
       const reply = document.createElement('div');
@@ -264,7 +190,7 @@ const landingView = document.getElementById('landingView');
   chatInput.addEventListener('keydown', (e) => {
     if(e.key === 'Enter') sendMessage();
   });
- 
+
   // Treatment toggle via chat icon in right panel
   const iconPhone = document.getElementById('iconPhone');
   const iconCamera = document.getElementById('iconCamera');
@@ -272,7 +198,7 @@ const landingView = document.getElementById('landingView');
   const treatmentBox = document.getElementById('treatmentBox');
   const archivosSection = document.getElementById('archivosSection');
   let expanded = false;
- 
+
   iconChat.addEventListener('click', () => {
     expanded = !expanded;
     if(expanded){
@@ -301,7 +227,7 @@ const landingView = document.getElementById('landingView');
       archivosSection.style.display = 'block';
     }
   });
- 
+
   // Archivo modal
   const archivoThumb = document.getElementById('archivoThumb');
   const modalOverlay = document.getElementById('modalOverlay');

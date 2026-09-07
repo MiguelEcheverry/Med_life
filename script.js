@@ -1,9 +1,10 @@
-document.addEventListener('DOMContentLoaded', () => {
 
+document.addEventListener('DOMContentLoaded', () => {
+ 
   /* ===== 1. ACEPTAR TERMINOS -> OCULTA EL PANEL IZQUIERDO ===== */
   const termsPanel = document.getElementById('termsPanel');
   const btnAceptar = document.getElementById('btnAceptar');
-
+ 
   btnAceptar.addEventListener('click', () => {
     termsPanel.classList.add('is-hidden');
     // Espera a que termine la transición para sacarlo del flujo por completo
@@ -11,23 +12,23 @@ document.addEventListener('DOMContentLoaded', () => {
       termsPanel.style.display = 'none';
     }, { once: true });
   });
-
+ 
   /* ===== 2. BOTON "+" -> ABRE / CIERRA EL MENU DE ADJUNTOS ===== */
   const btnPlus = document.getElementById('btnPlus');
   const plusMenu = document.getElementById('plusMenu');
-
+ 
   btnPlus.addEventListener('click', (e) => {
     e.stopPropagation();
     plusMenu.classList.toggle('is-open');
   });
-
+ 
   // Cierra el menú si se hace click fuera de él
   document.addEventListener('click', (e) => {
     if (!plusMenu.contains(e.target) && e.target !== btnPlus) {
       plusMenu.classList.remove('is-open');
     }
   });
-
+ 
   // Las opciones del menú son funcionales: al elegir una, se cierra el menú
   plusMenu.querySelectorAll('button').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -36,11 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('Opción seleccionada:', btn.textContent.trim());
     });
   });
-
+ 
   /* ===== 3. CHAT: ENVIAR MENSAJE Y RECIBIR RESPUESTA (DICCIONARIO DE PALABRAS CLAVE) =====
      Este script NO llama a ninguna IA de pago ni a ningún backend.
      Todo funciona localmente en el navegador, así que es 100% gratis.
-
+ 
      IMPORTANTE: Este diccionario da orientación GENERAL, no diagnostica
      ni reemplaza una consulta médica. Todas las respuestas de síntomas
      terminan invitando a confirmar con un profesional cuando corresponde,
@@ -49,16 +50,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const chatInput = document.getElementById('chatInput');
   const chatMessages = document.getElementById('chatMessages');
   const sendBtn = document.getElementById('sendBtn');
-
+ 
   // Respuesta que se usa cuando el mensaje del usuario NO coincide
   // con ninguna palabra clave del diccionario.
   const RESPUESTA_POR_DEFECTO = 'Claro, en que puedo ayudarte';
-
+ 
   // Diccionario de respuestas por defecto: si el mensaje del usuario
   // contiene alguna de estas palabras clave, se responde al instante
   // con el texto correspondiente.
   const DEFAULT_RESPONSES = {
-
+ 
     /* ---------- SALUDOS Y CORTESÍA ---------- */
     'hola': '¡Hola! Soy SAND IA. ¿En qué puedo ayudarte hoy?',
     'buenos dias': '¡Buenos días! ¿Cómo te sientes hoy?',
@@ -69,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'adios': '¡Hasta pronto! Cuídate mucho.',
     'hasta luego': '¡Hasta luego! Cualquier cosa, aquí estaré.',
     'ayuda': 'Puedo orientarte sobre síntomas comunes, medicamentos, citas y documentos. ¿Sobre qué tema quieres saber más?',
-
+ 
     /* ---------- EMERGENCIAS (van primero en importancia, aunque el orden real lo da el largo de la clave) ---------- */
     'emergencia': '⚠️ Si esto es una emergencia médica real, por favor comunícate de inmediato con los servicios de emergencia de tu localidad o acude al centro de salud más cercano.',
     'no puedo respirar': '⚠️ La dificultad severa para respirar es una emergencia. Busca ayuda médica inmediata o llama a los servicios de emergencia ahora mismo.',
@@ -81,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'intoxicacion': '⚠️ Ante una posible intoxicación, contacta de inmediato a un centro de emergencias o toxicología y, si es posible, ten a la mano el envase o sustancia involucrada.',
     'quemadura grave': '⚠️ Las quemaduras extensas o profundas requieren atención médica urgente. Enfría la zona con agua limpia y busca ayuda inmediata.',
     'accidente': '⚠️ Si acabas de sufrir un accidente y hay lesiones importantes, comunícate de inmediato con los servicios de emergencia.',
-
+ 
     /* ---------- CABEZA Y NEUROLÓGICO ---------- */
     'dolor de cabeza': 'Para el dolor de cabeza, descansa en un lugar tranquilo, mantente hidratado y evita pantallas por un rato. Si el dolor es muy fuerte, repentino o recurrente, consulta a tu médico.',
     'migrana': 'La migraña suele mejorar con reposo en un lugar oscuro y silencioso e hidratación. Si es muy frecuente o intensa, es importante que un médico evalúe un tratamiento adecuado para ti.',
@@ -90,18 +91,18 @@ document.addEventListener('DOMContentLoaded', () => {
     'desmayo': 'Si sientes que vas a desmayarte, siéntate o acuéstate con las piernas elevadas. Si llegó a ocurrir una pérdida de conciencia, es importante consultarlo con un médico.',
     'perdida de memoria': 'Los problemas de memoria pueden tener múltiples causas y merecen una evaluación médica, especialmente si son recientes o van en aumento.',
     'hormigueo': 'El hormigueo u adormecimiento puede deberse a mala postura o compresión nerviosa temporal. Si es persistente, afecta un solo lado del cuerpo o aparece de forma súbita, consulta a un médico cuanto antes.',
-
+ 
     /* ---------- OJOS ---------- */
     'ojo rojo': 'El enrojecimiento ocular puede deberse a irritación, alergia o infección. Evita frotarte el ojo y, si hay dolor, secreción o cambios en la visión, consulta a un oftalmólogo.',
     'vision borrosa': 'La visión borrosa puede tener varias causas. Si aparece de forma repentina o se acompaña de otros síntomas, consulta a un médico u oftalmólogo lo antes posible.',
     'dolor de ojos': 'El dolor ocular persistente debe ser evaluado por un oftalmólogo, sobre todo si se acompaña de cambios en la visión.',
     'conjuntivitis': 'La conjuntivitis suele causar enrojecimiento, picazón y secreción. Evita compartir toallas o maquillaje y consulta a un médico para confirmar el tipo y el tratamiento adecuado.',
-
+ 
     /* ---------- OÍDOS ---------- */
     'dolor de oido': 'El dolor de oído puede deberse a infección, cambios de presión o cera acumulada. Evita introducir objetos en el oído y consulta a un médico si el dolor persiste o hay secreción.',
     'zumbido en el oido': 'El zumbido en los oídos (tinnitus) puede tener varias causas. Si es persistente o afecta tu audición, conviene que lo evalúe un médico.',
     'perdida de audicion': 'Una disminución repentina de la audición debe evaluarse cuanto antes por un médico especialista.',
-
+ 
     /* ---------- GARGANTA Y RESPIRATORIO ---------- */
     'dolor de garganta': 'Para el dolor de garganta, prueba con líquidos tibios, gárgaras de agua con sal y descanso de la voz. Si dura más de unos días, hay fiebre alta o dificultad para tragar, consulta a un médico.',
     'tos': 'Para la tos, mantente hidratado y evita el humo o ambientes muy secos. Si dura más de una semana, viene con fiebre alta o dificultad para respirar, te recomiendo consultar a un médico.',
@@ -118,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'bronquitis': 'La bronquitis suele mejorar con reposo, hidratación y evitar irritantes como el humo. Si la tos persiste muchas semanas o hay fiebre alta, consulta a un médico.',
     'neumonia': 'La neumonía es una infección pulmonar que requiere evaluación médica, especialmente si hay fiebre alta, dificultad para respirar o dolor al respirar. Busca atención médica pronto.',
     'covid': 'Si sospechas COVID-19, aísla­te, descansa, hidrátate y monitorea síntomas como fiebre o dificultad para respirar. Si empeoran, busca atención médica y considera hacerte una prueba.',
-
+ 
     /* ---------- DIGESTIVO ---------- */
     'dolor de estomago': 'Para el malestar estomacal, evita comidas pesadas o irritantes y mantente hidratado. Si el dolor persiste más de un día, es muy intenso o se acompaña de fiebre, busca atención médica.',
     'dolor abdominal': 'El dolor abdominal puede tener muchas causas. Si es intenso, se ubica en un punto fijo, o se acompaña de fiebre o vómito, consulta a un médico cuanto antes.',
@@ -131,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'gastritis': 'La gastritis suele mejorar evitando irritantes como el alcohol, café en exceso o comidas muy condimentadas. Un médico puede indicarte el manejo adecuado según tu caso.',
     'perdida de apetito': 'La falta de apetito prolongada o acompañada de pérdida de peso debe evaluarse con un médico.',
     'sangre en las heces': '⚠️ La presencia de sangre en las heces debe evaluarse cuanto antes con un médico.',
-
+ 
     /* ---------- PIEL ---------- */
     'sarpullido': 'Para un sarpullido leve, evita rascarte y usa ropa suave. Si se extiende, pica mucho, o se acompaña de fiebre, consulta a un médico.',
     'erupcion en la piel': 'Las erupciones cutáneas pueden tener muchas causas. Si aparecen de forma súbita, se extienden o vienen con fiebre, consulta a un médico.',
@@ -142,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'herida': 'Limpia la herida con agua limpia y jabón suave, cúbrela y observa si hay signos de infección (enrojecimiento, calor, pus). Si es profunda o no deja de sangrar, busca atención médica.',
     'quemadura': 'Para una quemadura leve, enfría la zona con agua fría (no helada) durante varios minutos y cúbrela sin reventar ampollas. Si es extensa, profunda o en cara/manos, busca atención médica.',
     'picadura': 'Ante una picadura de insecto, limpia la zona y aplica frío local. Si hay hinchazón importante, dificultad para respirar o mareo, busca atención médica de inmediato.',
-
+ 
     /* ---------- MUSCULOESQUELÉTICO ---------- */
     'dolor de espalda': 'Para el dolor de espalda, evita cargar peso, mantén una buena postura y aplica calor local si ayuda. Si es intenso, se irradia a las piernas o dura varias semanas, consulta a un médico.',
     'dolor muscular': 'El dolor muscular leve suele mejorar con descanso, estiramientos suaves e hidratación. Si es muy intenso o no mejora en varios días, consulta a un médico.',
@@ -152,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'fractura': '⚠️ Si sospechas una fractura (dolor muy intenso, deformidad, imposibilidad de mover la zona), inmoviliza la zona y busca atención médica urgente.',
     'dolor de cuello': 'El dolor de cuello suele mejorar con estiramientos suaves y buena postura. Si es intenso, se irradia al brazo o aparece tras un golpe, consulta a un médico.',
     'dolor lumbar': 'El dolor lumbar mejora con reposo relativo, evitando cargar peso y con calor local. Si se irradia a la pierna o dura semanas, consulta a un médico.',
-
+ 
     /* ---------- CARDIOVASCULAR ---------- */
     'presion': 'Si tienes molestias relacionadas con la presión arterial (mareo, dolor de cabeza fuerte, visión borrosa), te recomiendo medirte la presión y consultar a un médico lo antes posible.',
     'presion alta': 'La presión arterial alta debe controlarse con seguimiento médico regular. Si tienes síntomas como dolor de cabeza intenso, visión borrosa o dolor de pecho, busca atención médica de inmediato.',
@@ -160,14 +161,14 @@ document.addEventListener('DOMContentLoaded', () => {
     'presion baja': 'La presión baja puede causar mareo o debilidad. Siéntate, hidrátate y evita levantarte bruscamente. Si es frecuente o intensa, consulta a un médico.',
     'palpitaciones': 'Las palpitaciones (sentir el corazón acelerado o irregular) deben evaluarse por un médico, especialmente si se acompañan de dolor de pecho, mareo o falta de aire.',
     'taquicardia': 'La taquicardia (ritmo cardíaco acelerado) debe ser evaluada por un médico si es frecuente o se acompaña de otros síntomas como mareo o dolor de pecho.',
-
+ 
     /* ---------- URINARIO Y RENAL ---------- */
     'dolor al orinar': 'El dolor o ardor al orinar puede indicar una infección urinaria. Mantente bien hidratado y consulta a un médico para confirmar y recibir tratamiento adecuado.',
     'infeccion urinaria': 'Las infecciones urinarias suelen causar ardor al orinar, urgencia y a veces fiebre. Es importante que un médico las evalúe y trate para evitar complicaciones.',
     'sangre en la orina': '⚠️ La presencia de sangre en la orina debe evaluarse cuanto antes con un médico.',
     'orina oscura': 'La orina muy oscura puede deberse a deshidratación, entre otras causas. Aumenta tu consumo de agua y, si persiste, consulta a un médico.',
     'calculos renales': 'Los cálculos renales pueden causar dolor intenso en la espalda o el costado. Si tienes dolor muy fuerte, sangre en la orina o fiebre, busca atención médica.',
-
+ 
     /* ---------- SALUD MENTAL Y BIENESTAR EMOCIONAL ---------- */
     'estres': 'El estrés es una respuesta normal, pero cuando es constante puede afectar tu bienestar. Técnicas de respiración, actividad física y buen descanso pueden ayudar. Si te sientes desbordado, hablar con un profesional de salud mental puede ser de gran ayuda.',
     'ansiedad': 'La ansiedad puede manifestarse con preocupación excesiva, tensión o dificultad para relajarte. Técnicas de respiración y actividad física pueden ayudar, pero si interfiere con tu día a día, te recomiendo hablar con un profesional de salud mental.',
@@ -177,20 +178,20 @@ document.addEventListener('DOMContentLoaded', () => {
     'depresion': 'Si sientes tristeza persistente, falta de energía o desinterés en actividades que antes disfrutabas, es importante hablar con un profesional de salud mental que pueda acompañarte.',
     'cansancio': 'El cansancio persistente puede tener muchas causas (sueño, alimentación, estrés, entre otras). Si no mejora con descanso, consulta a un médico.',
     'agotamiento': 'El agotamiento constante merece atención. Prioriza el descanso y, si no mejora, consulta a un médico para descartar otras causas.',
-
+ 
     /* ---------- SALUD FEMENINA ---------- */
     'embarazo': 'Si crees que puedes estar embarazada o tienes dudas durante tu embarazo, te recomiendo agendar una cita con tu ginecólogo para un seguimiento adecuado.',
     'menstruacion': 'Los cambios en el ciclo menstrual pueden tener varias causas. Si notas dolor muy intenso, sangrado abundante o irregularidades frecuentes, consulta a un ginecólogo.',
     'dolor menstrual': 'Para el dolor menstrual, el calor local y el descanso pueden ayudar. Si el dolor es muy intenso y limita tus actividades, consulta a un ginecólogo.',
     'sangrado irregular': 'El sangrado irregular fuera de tu ciclo habitual debe evaluarse con un ginecólogo.',
     'lactancia': 'Para dudas sobre lactancia (dolor, poca producción, entre otras), te recomiendo consultar con tu médico o un especialista en lactancia.',
-
+ 
     /* ---------- PEDIATRÍA / NIÑOS ---------- */
     'fiebre en niños': 'En niños, controla la temperatura y mantenlo hidratado. Si la fiebre supera los 38.5°C en bebés pequeños, dura varios días o hay otros síntomas de alarma, consulta a un pediatra.',
     'fiebre en bebe': 'En bebés, la fiebre debe evaluarse con cuidado, sobre todo en menores de 3 meses. Consulta a un pediatra ante cualquier fiebre en un bebé pequeño.',
     'vacunas': 'Para dudas sobre el esquema de vacunación de tu hijo o hija, te recomiendo consultarlo con su pediatra, quien podrá orientarte según su edad y su carnet de vacunación.',
     'llanto en bebe': 'El llanto persistente e inconsolable en un bebé puede tener varias causas. Si no cede o se acompaña de fiebre u otros síntomas, consulta a un pediatra.',
-
+ 
     /* ---------- MEDICAMENTOS Y TRATAMIENTOS ---------- */
     'medicamento': 'Recuerda tomar tus medicamentos exactamente como fueron recetados. Si tienes dudas sobre una dosis, consulta con tu médico antes de hacer cambios.',
     'dosis': 'La dosis correcta depende del medicamento y de tu caso particular; revisa tu receta o consulta directamente con tu médico antes de ajustar cualquier dosis.',
@@ -198,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'olvide tomar mi medicamento': 'Si olvidaste una dosis, no dupliques la siguiente por tu cuenta. Consulta con tu médico o farmacéutico sobre qué hacer según el medicamento específico.',
     'interaccion medicamentosa': 'Combinar medicamentos sin supervisión puede ser riesgoso. Consulta siempre con tu médico o farmacéutico antes de mezclar tratamientos.',
     'antibiotico': 'Los antibióticos deben tomarse exactamente como los recetó tu médico, completando el tratamiento aunque te sientas mejor antes. No los tomes sin indicación médica.',
-
+ 
     /* ---------- ADMINISTRATIVO / PLATAFORMA ---------- */
     'cita': 'Para agendar una cita, ve a la sección de "Especialidades" o "Servicios" en el menú principal de MedLife.',
     'agendar cita': 'Para agendar una cita, ve a la sección de "Especialidades" o "Servicios" en el menú principal de MedLife.',
@@ -209,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'especialista': 'Para ver la lista de especialistas disponibles, visita la sección "Especialidades" en el menú principal.',
     'seguro medico': 'Para dudas sobre tu cobertura o seguro médico, te recomiendo revisar la sección "Mi Cuenta" o comunicarte con soporte de MedLife.',
     'factura': 'Puedes consultar tus facturas y comprobantes de pago en la sección "Mi Cuenta" de la plataforma.',
-
+ 
     /* ---------- ESTILO DE VIDA / PREVENCIÓN ---------- */
     'alimentacion': 'Una alimentación balanceada, con frutas, verduras, proteínas y buena hidratación, es clave para tu salud general. Si necesitas un plan específico, un nutricionista puede orientarte mejor.',
     'ejercicio': 'La actividad física regular (al menos 150 minutos moderados por semana) aporta grandes beneficios a tu salud. Consulta a tu médico antes de empezar una rutina intensa si tienes alguna condición previa.',
@@ -217,12 +218,12 @@ document.addEventListener('DOMContentLoaded', () => {
     'bajar de peso': 'Para bajar de peso de forma saludable, combina una alimentación balanceada con actividad física regular. Un nutricionista puede ayudarte a diseñar un plan seguro para ti.',
     'fumar': 'Dejar de fumar es una de las mejores decisiones para tu salud. Si buscas apoyo para lograrlo, tu médico puede orientarte sobre estrategias y recursos disponibles.',
     'alcohol': 'El consumo excesivo de alcohol puede afectar tu salud a corto y largo plazo. Si te preocupa tu consumo o el de alguien cercano, hablar con un profesional de salud puede ayudar.',
-
+ 
     /* ---------- FALLBACK EXPLÍCITO ---------- */
     'no se': 'No hay problema, cuéntame con tus palabras qué es lo que sientes o qué necesitas y trataré de orientarte.',
     'dolor': 'Cuéntame un poco más: ¿en qué parte del cuerpo sientes el dolor y desde hace cuánto?'
   };
-
+ 
   /**
    * Busca si el texto del usuario contiene alguna palabra clave del
    * diccionario. Revisa las claves más largas primero (por ejemplo
@@ -234,9 +235,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const normalizado = texto
       .toLowerCase()
       .normalize('NFD').replace(/[\u0300-\u036f]/g, ''); // quita tildes
-
+ 
     const claves = Object.keys(DEFAULT_RESPONSES).sort((a, b) => b.length - a.length);
-
+ 
     for (const clave of claves) {
       if (normalizado.includes(clave)) {
         return DEFAULT_RESPONSES[clave];
@@ -244,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     return null;
   }
-
+ 
   function iaAvatarSVG() {
     return `<span class="ia-avatar">
       <svg viewBox="0 0 40 40" width="18" height="18">
@@ -257,82 +258,94 @@ document.addEventListener('DOMContentLoaded', () => {
       </svg>
     </span>`;
   }
-
+ 
   function addMessage(text, from) {
     const wrap = document.createElement('div');
     wrap.className = from === 'user' ? 'msg msg--user' : 'msg msg--ia';
-
+ 
     if (from === 'ia') {
       wrap.innerHTML = `${iaAvatarSVG()}<p></p>`;
     } else {
       wrap.innerHTML = `<p></p>`;
     }
     wrap.querySelector('p').textContent = text;
-
+ 
     chatMessages.appendChild(wrap);
     chatMessages.scrollTop = chatMessages.scrollHeight;
     return wrap;
   }
-
+ 
   function sendMessage() {
     const text = chatInput.value.trim();
     if (!text) return;
-
+ 
     addMessage(text, 'user');
     chatInput.value = '';
-
+ 
     // Busca en el diccionario; si no hay ninguna coincidencia,
     // usa la respuesta por defecto ("Claro, en que puedo ayudarte").
     const respuesta = buscarRespuestaPorDefecto(text) || RESPUESTA_POR_DEFECTO;
-
+ 
     // Simula un pequeño tiempo de "respuesta" para que se sienta natural
     setTimeout(() => {
       addMessage(respuesta, 'ia');
     }, 700);
   }
-
+ 
   chatInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();
       sendMessage();
     }
   });
-
+ 
   if (sendBtn) {
     sendBtn.addEventListener('click', sendMessage);
   }
-
+ 
   /* ===== 4. ARCHIVOS GENERADOS -> MUESTRA EL DOCUMENTO Y CAMBIA EL PANEL DERECHO ===== */
   const docThumbBtn = document.getElementById('docThumbBtn');
   const docOverlay = document.getElementById('docOverlay');
   const pillBtn = document.getElementById('pillBtn');
   const historialList = document.getElementById('historialList');
   const recomendacionesList = document.getElementById('recomendacionesList');
-
+ 
   function showDocumento() {
     docOverlay.classList.add('is-open');
     pillBtn.textContent = 'RECOMENDACIONES';
     historialList.hidden = true;
     recomendacionesList.hidden = false;
   }
-
+ 
   function hideDocumento() {
     docOverlay.classList.remove('is-open');
     pillBtn.textContent = 'HISTORIAL';
     historialList.hidden = false;
     recomendacionesList.hidden = true;
   }
-
+ 
   docThumbBtn.addEventListener('click', showDocumento);
-
+ 
   // Cierra el documento al hacer click fuera de la tarjeta blanca
   docOverlay.addEventListener('click', (e) => {
     if (e.target === docOverlay) hideDocumento();
   });
-
-  /* ===== BOTON VOLVER (placeholder funcional) ===== */
-  document.getElementById('backBtn').addEventListener('click', () => {
-    console.log('Volver a la pantalla anterior');
+ 
+  /* ===== BOTON VOLVER -> REGRESA A LA PANTALLA/PAGINA ANTERIOR =====
+     Si el usuario llegó a esta página navegando desde otra (por ejemplo
+     el dashboard principal), history.back() lo regresa ahí.
+     Si esta página se abrió directamente (sin historial previo, por
+     ejemplo en una pestaña nueva), usamos una URL de respaldo. */
+  const backBtn = document.getElementById('backBtn');
+  const URL_RESPALDO = 'servicios.html'; // Cambia esto por la página principal de tu sitio
+ 
+  backBtn.addEventListener('click', () => {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.href = URL_RESPALDO;
+    }
   });
-
+ 
 });
+ 
