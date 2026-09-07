@@ -33,62 +33,71 @@
 
   <main class="blog-section">
 
-    <div class="post-meta">
-      <span class="meta-item">
-        <svg viewBox="0 0 24 24" class="meta-icon"><circle cx="12" cy="12" r="9" fill="none" stroke="#414042" stroke-width="1.6"/><path d="M12 7 V12 L16 14" fill="none" stroke="#414042" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        PUBLICADO HACE 2 AÑOS
-      </span>
-      <span class="meta-item">
-        <svg viewBox="0 0 24 24" class="meta-icon"><path d="M12 20 C5 15, 3 10, 7 6.5 C9.5 4.3, 12 5.5, 12 8 C12 5.5, 14.5 4.3, 17 6.5 C21 10, 19 15, 12 20 Z" fill="none" stroke="#414042" stroke-width="1.6"/><path d="M10 8 h4 M12 6 v4" stroke="#414042" stroke-width="1.4" stroke-linecap="round"/></svg>
-        SALUD
-      </span>
+    <!--
+      Panel blanco que envuelve todo el contenido (meta + artículo + sidebar),
+      así descansa legible sobre la imagen de fondo sin tocar ningún color de texto original.
+    -->
+    <div class="content-panel">
+
+      <div class="post-meta">
+        <span class="meta-item">
+          <svg viewBox="0 0 24 24" class="meta-icon"><circle cx="12" cy="12" r="9" fill="none" stroke="#414042" stroke-width="1.6"/><path d="M12 7 V12 L16 14" fill="none" stroke="#414042" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          PUBLICADO HACE 2 AÑOS
+        </span>
+        <span class="meta-item">
+          <svg viewBox="0 0 24 24" class="meta-icon"><path d="M12 20 C5 15, 3 10, 7 6.5 C9.5 4.3, 12 5.5, 12 8 C12 5.5, 14.5 4.3, 17 6.5 C21 10, 19 15, 12 20 Z" fill="none" stroke="#414042" stroke-width="1.6"/><path d="M10 8 h4 M12 6 v4" stroke="#414042" stroke-width="1.4" stroke-linecap="round"/></svg>
+          SALUD
+        </span>
+      </div>
+
+      <div class="blog-grid">
+
+        <article class="post-body">
+
+          <div class="post-head">
+            <div class="post-image">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <rect width="200" height="200" rx="16" fill="#EAF6FA"/>
+                <path d="M100 155 C65 130, 45 105, 55 78 C63 55, 90 58, 100 78 C110 58, 137 55, 145 78 C155 105, 135 130, 100 155 Z"
+                      fill="none" stroke="#1C86C4" stroke-width="6" stroke-linejoin="round"/>
+                <path d="M70 100 C66 92, 74 84, 82 88 C86 90, 86 96, 82 100 L74 108"
+                      fill="none" stroke="#4FB8D6" stroke-width="4.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="post-intro">
+              <h1>¿Qué es la lepra?</h1>
+              <p>La lepra, también llamada enfermedad de Hansen, es una enfermedad infecciosa crónica causada por una bacteria llamada Mycobacterium leprae. Esta bacteria afecta principalmente la piel, los nervios periféricos, los ojos y algunas partes de las vías respiratorias.</p>
+            </div>
+          </div>
+
+          <p>La lepra se transmite de una persona a otra principalmente a través de gotas que salen por la nariz o la boca cuando una persona enferma y no tratada tose o estornuda. Sin embargo, no es una enfermedad muy contagiosa, y normalmente se necesita contacto cercano y prolongado con una persona infectada para que ocurra el contagio.</p>
+
+          <p>Uno de los síntomas más comunes de la lepra es la aparición de manchas claras o rojizas en la piel que pueden perder sensibilidad. También pueden aparecer entumecimiento en manos y pies, debilidad muscular, lesiones en la piel y daño en los nervios. Si la enfermedad no se trata a tiempo, puede causar daños permanentes en los nervios, deformaciones en manos o pies y problemas en los ojos.</p>
+
+          <p>La lepra tiene cura. Actualmente se trata con una combinación de antibióticos especiales durante varios meses, tratamiento conocido como terapia multidrogas, recomendado por la Organización Mundial de la Salud. Con el tratamiento adecuado, la persona deja de contagiar rápidamente y puede recuperarse.</p>
+
+        </article>
+
+        <aside class="sidebar">
+          <h3>Categorías</h3>
+          <ul class="category-list">
+            <li><a href="#">Bienestar</a></li>
+            <li><a href="#">Corporativo</a></li>
+            <li><a href="#">Salud</a></li>
+          </ul>
+
+          <h3>Entradas recientes</h3>
+          <ul class="recent-list">
+            <li><a href="#">¿Qué es la lepra?</a></li>
+            <li><a href="#">Día internacional del síndrome de Asperger</a></li>
+            <li><a href="#">Día mundial del glaucoma</a></li>
+          </ul>
+        </aside>
+
+      </div>
+
     </div>
 
-    <div class="blog-grid">
-
-      <article class="post-body">
-
-        <div class="post-head">
-          <div class="post-image">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <rect width="200" height="200" rx="16" fill="#EAF6FA"/>
-              <path d="M100 155 C65 130, 45 105, 55 78 C63 55, 90 58, 100 78 C110 58, 137 55, 145 78 C155 105, 135 130, 100 155 Z"
-                    fill="none" stroke="#1C86C4" stroke-width="6" stroke-linejoin="round"/>
-              <path d="M70 100 C66 92, 74 84, 82 88 C86 90, 86 96, 82 100 L74 108"
-                    fill="none" stroke="#4FB8D6" stroke-width="4.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="post-intro">
-            <h1>¿Qué es la lepra?</h1>
-            <p>La lepra, también llamada enfermedad de Hansen, es una enfermedad infecciosa crónica causada por una bacteria llamada Mycobacterium leprae. Esta bacteria afecta principalmente la piel, los nervios periféricos, los ojos y algunas partes de las vías respiratorias.</p>
-          </div>
-        </div>
-
-        <p>La lepra se transmite de una persona a otra principalmente a través de gotas que salen por la nariz o la boca cuando una persona enferma y no tratada tose o estornuda. Sin embargo, no es una enfermedad muy contagiosa, y normalmente se necesita contacto cercano y prolongado con una persona infectada para que ocurra el contagio.</p>
-
-        <p>Uno de los síntomas más comunes de la lepra es la aparición de manchas claras o rojizas en la piel que pueden perder sensibilidad. También pueden aparecer entumecimiento en manos y pies, debilidad muscular, lesiones en la piel y daño en los nervios. Si la enfermedad no se trata a tiempo, puede causar daños permanentes en los nervios, deformaciones en manos o pies y problemas en los ojos.</p>
-
-        <p>La lepra tiene cura. Actualmente se trata con una combinación de antibióticos especiales durante varios meses, tratamiento conocido como terapia multidrogas, recomendado por la Organización Mundial de la Salud. Con el tratamiento adecuado, la persona deja de contagiar rápidamente y puede recuperarse.</p>
-
-      </article>
-
-      <aside class="sidebar">
-        <h3>Categorías</h3>
-        <ul class="category-list">
-          <li><a href="#">Bienestar</a></li>
-          <li><a href="#">Corporativo</a></li>
-          <li><a href="#">Salud</a></li>
-        </ul>
-
-        <h3>Entradas recientes</h3>
-        <ul class="recent-list">
-          <li><a href="#">¿Qué es la lepra?</a></li>
-          <li><a href="#">Día internacional del síndrome de Asperger</a></li>
-          <li><a href="#">Día mundial del glaucoma</a></li>
-        </ul>
-      </aside>
-
-    </div>
   </main>
 
   <a href="ia.html" class="ia-float-btn" aria-label="Ir a IA">
