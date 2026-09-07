@@ -32,7 +32,7 @@ body { font-family: 'Montserrat', sans-serif; background: #ffffff; }
   padding: 50px 60px 70px;
 }
 
-/* ===== Panel blanco que contiene todo el contenido =====
+/* ===== Panel blanco que contiene el contenido =====
    Así el fondo se ve como marco alrededor, y el texto conserva
    exactamente los mismos colores que ya tenía (sin tocarlos) */
 .content-panel {
@@ -42,6 +42,17 @@ body { font-family: 'Montserrat', sans-serif; background: #ffffff; }
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.more-articles-panel {
+  margin-top: 30px;
+}
+
+.more-title {
+  color: var(--blue-primary);
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 26px;
 }
 
 /* Meta (fecha + categoría) */
@@ -107,7 +118,38 @@ body { font-family: 'Montserrat', sans-serif; background: #ffffff; }
 }
 .post-body > p { margin-bottom: 20px; }
 
-/* Sidebar */
+.post-actions {
+  margin-top: 10px;
+}
+
+/* ===== Botón de like (toggle) =====
+   Guardado en localStorage, un like por navegador */
+.like-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid var(--blue-primary);
+  background: #ffffff;
+  color: var(--blue-primary);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  padding: 8px 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+.like-btn:active { transform: scale(0.95); }
+.like-icon { width: 16px; height: 16px; flex-shrink: 0; }
+.like-btn.liked {
+  background: var(--blue-primary);
+  color: #ffffff;
+}
+.like-btn.liked .like-icon path {
+  fill: currentColor;
+}
+
+/* ===== Sidebar (sin azul: títulos oscuros + texto descriptivo) ===== */
 .sidebar h3 {
   color: #414042;
   font-size: 16px;
@@ -117,27 +159,128 @@ body { font-family: 'Montserrat', sans-serif; background: #ffffff; }
 }
 .sidebar h3:first-child { margin-top: 0; }
 
-.category-list, .recent-list {
+.category-list {
   list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
-.category-list li { margin-bottom: 8px; }
+.category-list li { margin-bottom: 0; }
 .category-list a {
-  color: var(--blue-primary);
-  font-weight: 800;
-  font-size: 14px;
+  display: inline-block;
+  color: #414042;
+  background: #EAF6FA;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 6px 16px;
+  border-radius: 20px;
   text-decoration: none;
 }
-.category-list a::before { content: '• '; }
+.category-list a:hover { background: #d9edf4; }
 
-.recent-list li { margin-bottom: 14px; }
+.recent-list {
+  list-style: none;
+}
+.recent-list li {
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #eee;
+}
+.recent-list li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
 .recent-list a {
-  color: var(--blue-primary);
+  color: #333333;
   font-weight: 800;
   font-size: 14px;
   text-decoration: none;
   line-height: 1.4;
-  display: inline-block;
+  display: block;
+  margin-bottom: 6px;
 }
+.recent-list a:hover { color: var(--blue-primary); }
+.recent-excerpt {
+  display: block;
+  color: #838383;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* ===== Panel de "Más artículos" (grid de tarjetas) ===== */
+.more-articles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.mini-post {
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mini-head {
+  display: flex;
+  gap: 16px;
+}
+
+.mini-image {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+}
+.mini-image svg { width: 100%; height: 100%; display: block; }
+
+.mini-intro h3 {
+  color: var(--blue-primary);
+  font-size: 15px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.mini-excerpt {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #555;
+  line-height: 1.6;
+}
+
+.mini-full {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.75;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 14px;
+}
+.mini-full p { margin-bottom: 12px; }
+.mini-full p:last-child { margin-bottom: 0; }
+.mini-full.hidden { display: none; }
+
+.mini-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.read-more-btn {
+  background: none;
+  border: none;
+  color: var(--blue-primary);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 0;
+}
+.read-more-btn:hover { text-decoration: underline; }
 
 /* Botón flotante IA */
 .ia-float-btn {
@@ -155,4 +298,10 @@ body { font-family: 'Montserrat', sans-serif; background: #ffffff; }
   .content-panel { padding: 28px 24px; }
   .blog-grid { grid-template-columns: 1fr; }
   .post-meta { flex-wrap: wrap; gap: 14px; }
+  .more-articles-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .mini-head { flex-direction: column; }
+  .mini-image { width: 70px; height: 70px; }
 }
